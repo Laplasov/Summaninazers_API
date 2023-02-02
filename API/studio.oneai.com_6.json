@@ -1,0 +1,580 @@
+{
+  "input": [
+    {
+      "utterance": "Build ChatGPT-like Chatbots With Customized Knowledge for Your Websites, Using Simple Programming\n\nLike ChatGPT but in a form that you can plug into your website and expand with any kind of tailored information by combining basic “old-school” NLP with cutting-edge GPT-3.\n\nIntroduction\n\nBeing the end of 2022, it’s quite likely that you’ve heard about ChatGPT and even witnessed its power by using it. ChatGPT is a revolutionary artificial intelligence technology that allows users to have natural conversations with a very smart chatbot. Its unique ability to understand and respond to human language has made it a popular choice for businesses looking to improve customer service, as well as for individuals seeking a more personalized chat experience.\n\nAs impressive as ChatGPT is, it would be even cooler if there was a way to integrate it into your own website and train it with customized information. Imagine being able to create a chatbot that is tailored to your business or one that can hold intelligent conversations with your friends and family.\n\nThis is all possible with technologies that are just an API call away and that you can integrate seamlessly into web pages, web apps, and websites.\n\nIn this article, I will show you how to create a good-looking chatbot powered by GPT3, using HTML, CSS, and JavaScript on the client and PHP on the server. Through old-style string natural language processing, the chatbot searches for relevant sources of information in your custom-prepared sources. Then, it uses the retrieved information for few-shot learning with GPT-3 as it adds on the user’s input. The produced answer is then displayed, all in a nice GUI like that expected for a fully-fledged chatbot. The overall result is a quite smart chatbot, like ChatGPT, further able to respond about things that regular GPT-3 or ChatGPT don’t know about, in a nice, easy-to-use graphical format.\n\nHere you can see it in action, replying to questions that regular GPT-3 doesn’t know about (for example, about myself) but are here retrieved from some customized texts, and also replying to questions that GPT-3 knows from its default training (see the question about declaring variables in JavaScript):\n\nLike it?\n\nFeel excited to insert a similar chatbot in your website?\n\nSo, let’s get started!\n\nThe brain\n\nThe core of this chatbot is GPT-3 (I used here the latest davinci model, called text-davinci-003) accessed through a PHP library as explained here:\n\nBuild custom-informed GPT-3-based chatbots for your website with very simple code\n\nLearn about GPT-3, PHP and JavaScript as you build an online GPT-3 based chatbot specialized in a given topic that you…\ntowardsdatascience.com\n\nIn that very detailed tutorial, I explained how to use a JavaScript function in a PHP library that handles calls to OpenAI’s API for GPT-3 models. The JavaScript call passes a prompt containing a question from the user and the API key provided by the user (although, of course you could provide this directly in the PHP code, then you’ll have to pay for the tokens consumed). GPT-3 then replies with a text completion from which the chatbot’s answer to the user’s input is extracted and displayed.\n\nIf you have a website with full control, you can simply install PHP… or you probably already have it. In my case, I have PHP already installed because I use Altervista -an amazing free hosting service:\n\nAltervista: The Best Free Web Hosting Out There For Me\n\nEnabling JavaScript and even PHP for free with a super simple coding environment.\njavascript.plainenglish.io\n\nMy article on building GPT-3 bots is already around 1 month old. And since then, I have built learned a lot and done many experiments that allowed me to come up with a much better “product”.\n\nMore specifically, relative to the chatbot described in my previous tutorial, I have now come up with three very important improvements: the ability to selectively extract pieces of information from user-customized paragraphs, the ability to continue a fluent conversation by “remembering” it as it goes, and the integration of the system with a nice chat-like GUI.\n\n- The ability to selectively extract pieces of information from user-customized paragraphs allows your chatbot to reply to questions that it would otherwise have to either decline or answer without certainty, hence risking that it makes up stuff.\n- Continuity allows you to use wildcard words such as “it”, “them”, etc. to refer to objects you were just talking about, yet the chatbot understands what you are referring to. This is essential for a smooth experience and to have a natural chat.\n- Meanwhile, a nice GUI also provides a better user experience and makes the app fit correctly on screens of different sizes.\n\nExtracting customized information\n\nTo extract customized information, I tried several approaches based on “old school” NLP. I ended up doing it this way, which worked best:\n\nFirst, at the core of the approach, I set up a long paragraph full of information. It’s very long, certainly much longer than the number of tokens accepted by GPT-3. Hence it cannot be fed in full for few-shot learning. That’s where old-school NLP helps: to extract a relevant pieces of information, short enough to be fed into GPT-3.\n\nSecond, when the human’s input is processed, it is cleaned up of stopwords, symbols, numbers, etc., by a simple procedure that ends up leaving only meaningful words (or of presumed relevance). Each of these words is searched inside the long paragraph containing the customized information (see step three below).\n\nTo clean up these stopwords (and also numbers, contractions, symbols, repeated spaces, etc.) I use a quite simple approach based on regular expressions and large lists of strings to search.\n\nThese lists are painful to prepare, so just serve yourself:\n\n//Define lists of words and symbols to filter out\n\n//Numbers and similar\n\nvar stopwordnumbers = [“once”, “twice”, “thrice”, “first”, “second”, “third”, “fourth”, “fifth”, “sixth”, “seventh”, “nineth”, “tenth”, “1”, “2”, “3”, “4”, “5”, “6”, “7”, “8”, “9”, “0”, “one”, “two”, “three”, “four”, “five”, “six”, “seven”, “eight”, “nine”, “ten”, , “eleven”, “twelve”, “thirteen”, “fourteen”, “fifteen”, “sixteen”, “seventeen”, “eighteen”, “tweenty”, “thirty”, “fourty”, “fifty”, “sixty”, “seventy”, “eighty”, “ninety”, “hundred”, “hundreds”, “and”, “-”, “thousand”, “thousands”, “million”, “millions”, “billion”, “billions” ];\n\n//Symbols\n\nvar stopwordsymbols = [“+”,”-”,”*”,”%”,”/”,”?”,”!”,”^”,”’”,”\\””,”,”,”;”,”\\\\”,”.”]\n\n//Very short words and others, compiled by me from several resources including https://github.com/Yoast/YoastSEO.js/blob/develop/src/config/stopwords.js and https://gist.github.com/sebleier/554280\n\nvar stopwordsmin3=[\"if\", \"or\", \"in\", “a”,”an”,”cool”,”good”,”yep”,”yeah”,”but”,”yes”,”no”,”nop”,”nope”,”sth”,”something”,”anything”,”tell”,”me”,”i”,”want”,”to”,”know”,”asked”,”curious”,”asked”,”ask”,”question”,”answer”,”reply”,”sentence”,”about”,”up”,”yep”,”yeap”,”hi”,”hey”,”will”,”not”,”yes”,”is”,”it”,”he”,”she”,”they”,”them”,”theirs”,”us”,”our”,”we”,”you”,”your”,”yours”,”a”,”ah”,”lol”,”thanks”,”do”,”please”,”pls”,”plis”,”xd”,”wait”,”caca”, “yeah”, “no”, “ok”, “act”,”adj”,”ago”,”ain”,”all”,”and”,”any”,”are”,”a’s”,”ask”,”big”,”but”,”buy”,”can”,”cit”,”co.”,”com”,”con”,”cry”,”c’s”,”did”,”don”,”due”,”edu”,”end”,”est”,”etc”,”far”,”few”,”fix”,”for”,”get”,”gmt”,”got”,”gov”,”had”,”has”,”hed”,”her”,”hes”,”hid”,”him”,”his”,”how”,”htm”,”i’d”,”ill”,”i’m”,”inc”,”int”,”isn”,”itd”,”its”,”ive”,”les”,”let”,”’ll”,”los”,”low”,”ltd”,”man”,”may”,”men”,”mil”,”mrs”,”mug”,”nay”,”net”,”new”,”non”,”nor”,”nos”,”not”,”now”,”off”,”ohh”,”old”,”omg”,”one”,”ord”,”org”,”our”,”out”,”own”,”par”,”pas”,”per”,”put”,”que”,”ran”,”ref”,”run”,”saw”,”say”,”sec”,”see”,”she”,”six”,”sub”,”sup”,”ten”,”the”,”til”,”tip”,”tis”,”too”,”top”,”try”,”t’s”,”two”,”ups”,”use”,”’ve”,”via”,”viz”,”vol”,”was”,”way”,”web”,”wed”,”who”,”why”,”won”,”www”,”yes”,”yet”,”you”,”able”,”abst”,”aint”,”also”,”amid”,”area”,”aren”,”arpa”,”asks”,”auth”,”away”,”back”,”been”,”best”,”bill”,”biol”,”both”,”call”,”came”,”cant”,”case”,”cmon”,”come”,”copy”,”dare”,”date”,”dear”,”didn”,”does”,”done”,”dont”,”down”,”each”,”else”,”ends”,”even”,”ever”,”face”,”fact”,”felt”,”fify”,”fill”,”find”,”fire”,”five”,”four”,”free”,”from”,”full”,”gave”,”gets”,”give”,”goes”,”gone”,”good”,”hadn”,”half”,”hasn”,”have”,”he’d”,”hell”,”help”,”here”,”hers”,”he’s”,”high”,”home”,”html”,”http”,”i.e.”,”ibid”,”i’ll”,”inc.”,”into”,”isnt”,”it’d”,”itll”,”it’s”,”i’ve”,”join”,”just”,”keep”,”kept”,”keys”,”kind”,”knew”,”know”,”last”,”less”,”lest”,”lets”,”like”,”line”,”long”,”look”,”made”,”make”,”many”,”mean”,”mill”,”mine”,”miss”,”more”,”most”,”move”,”msie”,”much”,”must”,”name”,”near”,”need”,”next”,”nine”,”none”,”null”,”okay”,”once”,”ones”,”only”,”onto”,”open”,”ours”,”over”,”page”,”part”,”past”,”plus”,”pmid”,”puts”,”refs”,”ring”,”room”,”said”,”same”,”says”,”seem”,”seen”,”sees”,”self”,”sent”,”shan”,”shed”,”shes”,”show”,”side”,”site”,”some”,”soon”,”stop”,”such”,”sure”,”take”,”tell”,”test”,”text”,”than”,”that”,”them”,”then”,”they”,”thin”,”this”,”thou”,”thru”,”thus”,”till”,”’tis”,”took”,”turn”,”twas”,”unto”,”upon”,”used”,”uses”,”uucp”,”very”,”vols”,”want”,”wasn”,”ways”,”we’d”,”well”,”went”,”were”,”weve”,”what”,”when”,”whim”,”whod”,”whom”,”whos”,”will”,”wish”,”with”,”wont”,”work”,”year”,”youd”,”your”,”zero”,”about”,”above”,”added”,”after”,”again”,”ahead”,”ain’t”,”allow”,”alone”,”along”,”among”,”apart”,”areas”,”arent”,”arise”,”aside”,”asked”,”backs”,”began”,”begin”,”being”,”below”,”brief”,”can’t”,”cases”,”cause”,”clear”,”click”,”c’mon”,”comes”,”could”,”didnt”,”doesn”,”doing”,”don’t”,”downs”,”early”,”eight”,”empty”,”ended”,”et-al”,”every”,”faces”,”facts”,”fewer”,”fifth”,”fifty”,”finds”,”first”,”forth”,”forty”,”found”,”front”,”fully”,”given”,”gives”,”going”,”goods”,”great”,”group”,”hadnt”,”hasnt”,”haven”,”he’ll”,”hello”,”hence”,”heres”,”how’d”,”how’s”,”index”,”inner”,”isn’t”,”it’ll”,”itse””,”keeps”,”known”,”knows”,”large”,”later”,”least”,”let’s”,”liked”,”looks”,”lower”,”makes”,”maybe”,”maynt”,”means”,”might”,”minus”,”mustn”,”needn”,”needs”,”never”,”newer”,”noone”,”noted”,”novel”,”often”,”older”,”one’s”,”opens”,”order”,”other”,”ought”,”owing”,”pages”,”parts”,”place”,”point”,”proud”,”quite”,”right”,”rooms”,”round”,”seems”,”seven”,”shall”,”shant”,”she’d”,”shell”,”she’s”,”shown”,”shows”,”sides”,”since”,”sixty”,”small”,”sorry”,”state”,”still”,”taken”,”tends”,”thank”,”thanx”,”thats”,”their”,”there”,”these”,”theyd”,”thick”,”thing”,”think”,”third”,”those”,”three”,”today”,”tried”,”tries”,”truly”,”turns”,”’twas”,”twice”,”under”,”until”,”using”,”value”,”wants”,”wasnt”,”we’ll”,”wells”,”we’re”,”weren”,”we’ve”,”whats”,”where”,”which”,”while”,”who’d”,”whole”,”wholl”,”who’s”,”whose”,”why’d”,”why’s”,”width”,”won’t”,”words”,”works”,”world”,”would”,”years”,”you’d”,”youll”,”young”,”youre”,”yours”,”youve”,”abroad”,”across”,”allows”,”almost”,”always”,”amidst”,”amount”,”anyhow”,”anyone”,”anyway”,”appear”,”aren’t”,”around”,”asking”,”backed”,”became”,”become”,”before”,”begins”,”behind”,”beings”,”beside”,”better”,”beyond”,”bottom”,”cannot”,”causes”,”couldn”,”course”,”darent”,”detail”,”didn’t”,”differ”,”doesnt”,”downed”,”during”,”effect”,”eighty”,”either”,”eleven”,”ending”,”enough”,”evenly”,”except”,”fairly”,”former”,”giving”,”gotten”,”groups”,”hadn’t”,”hardly”,”hasn’t”,”havent”,”having”,”hereby”,”herein”,”here’s”,”higher”,”himse””,”hither”,”how’ll”,”indeed”,”inside”,”inward”,”itself”,”lately”,”latest”,”latter”,”length”,”likely”,”little”,”longer”,”mainly”,”making”,”mayn’t”,”member”,”merely”,”mightn”,”mostly”,”mustnt”,”myself”,”namely”,”nearly”,”needed”,”neednt”,”neverf”,”newest”,”ninety”,”nobody”,”no-one”,”number”,”obtain”,”oldest”,”opened”,”orders”,”others”,”parted”,”placed”,”places”,”please”,”points”,”poorly”,”rather”,”really”,”recent”,”saying”,”second”,”seeing”,”seemed”,”selves”,”shan’t”,”she’ll”,”should”,”showed”,”showns”,”states”,”system”,”taking”,”thanks”,”thatll”,”that’s”,”thatve”,”theirs”,”thence”,”thered”,”theres”,”they’d”,”theyll”,”theyre”,”theyve”,”thickv”,”things”,”thinks”,”thirty”,”though”,”throug”,”toward”,”trying”,”turned”,”twelve”,”twenty”,”unless”,”unlike”,”useful”,”versus”,”wanted”,”wasn’t”,”well-b”,”werent”,”what’d”,”whatll”,”what’s”,”whatve”,”whence”,”when’d”,”when’s”,”wheres”,”whilst”,”who’ll”,”why’ll”,”widely”,”within”,”wonder”,”worked”,”wouldn”,”you’ll”,”you’re”,”you’ve”,”adopted”,”affects”,”against”,”already”,”amongst”,”another”,”anybody”,”anymore”,”anyways”,”awfully”,”backing”,”because”,”becomes”,”believe”,”besides”,”between”,”billion”,”briefly”,”caption”,”certain”,”changes”,”clearly”,”contain”,”couldnt”,”daren’t”,”despite”,”doesn’t”,”downing”,”exactly”,”example”,”farther”,”fifteen”,”follows”,”forever”,”forward”,”further”,”general”,”getting”,”greater”,”grouped”,”happens”,”haven’t”,”herself”,”highest”,”himself”,”howbeit”,”however”,”hundred”,”ignored”,”insofar”,”instead”,”largely”,”longest”,”looking”,”members”,”mightnt”,”million”,”mustn’t”,”must’ve”,”needing”,”needn’t”,”neither”,”nothing”,”nowhere”,”numbers”,”omitted”,”opening”,”ordered”,”oughtnt”,”outside”,”overall”,”parting”,”perhaps”,”pointed”,”present”,”problem”,”quickly”,”readily”,”regards”,”related”,”results”,”seconds”,”section”,”seeming”,”serious”,”seventy”,”several”,”shouldn”,”showing”,”similar”,”sincere”,”smaller”,”someday”,”somehow”,”someone”,”specify”,”suggest”,”that’ll”,”that’ve”,”thereby”,”there’d”,”therein”,”therell”,”thereof”,”therere”,”there’s”,”thereto”,”thereve”,”they’ll”,”they’re”,”they’ve”,”thoughh”,”thought”,”through”,”towards”,”turning”,”undoing”,”upwards”,”usually”,”various”,”wanting”,”webpage”,”website”,”welcome”,”weren’t”,”what’ll”,”what’ve”,”when’ll”,”whereas”,”whereby”,”where’d”,”wherein”,”where’s”,”whether”,”whither”,”whoever”,”willing”,”without”,”working”,”wouldnt”,”younger”,”actually”,”affected”,”although”,”amoungst”,”announce”,”anything”,”anywhere”,”backward”,”becoming”,”computer”,”consider”,”contains”,”couldn’t”,”could’ve”,”describe”,”directly”,”doubtful”,”entirely”,”evermore”,”everyone”,”followed”,”formerly”,”furthers”,”greatest”,”grouping”,”hereupon”,”homepage”,”inasmuch”,”indicate”,”interest”,”latterly”,”likewise”,”meantime”,”mightn’t”,”might’ve”,”moreover”,”netscape”,”normally”,”obtained”,”opposite”,”ordering”,”oughtn’t”,”pointing”,”possible”,”possibly”,”presents”,”probably”,”problems”,”promptly”,”provided”,”provides”,”recently”,”research”,”reserved”,”resulted”,”secondly”,”sensible”,”shouldnt”,”slightly”,”smallest”,”somebody”,”somethan”,”sometime”,”somewhat”,”strongly”,”there’ll”,”there’re”,”there’ve”,”thorough”,”thoughts”,”thousand”,”together”,”trillion”,”unlikely”,”usefully”,”whatever”,”whenever”,”where’ll”,”wherever”,”whomever”,”wouldn’t”,”would’ve”,”youngest”,”yourself”,”ableabout”,”according”,”affecting”,”alongside”,”available”,”backwards”,”beginning”,”certainly”,”currently”,”described”,”different”,”downwards”,”elsewhere”,”everybody”,”following”,”furthered”,”generally”,”greetings”,”hereafter”,”hopefully”,”immediate”,”important”,”indicated”,”indicates”,”interests”,”invention”,”meanwhile”,”microsoft”,”necessary”,”neverless”,”obviously”,”otherwise”,”ourselves”,”pagecount”,”presented”,”primarily”,”regarding”,”resulting”,”seriously”,”shouldn’t”,”should’ve”,”similarly”,”something”,”sometimes”,”somewhere”,”specified”,”therefore”,”thereupon”,”volumtype”,”whereupon”,”whichever”,”accordance”,”afterwards”,”apparently”,”appreciate”,”associated”,”beforehand”,”beginnings”,”concerning”,”containing”,”definitely”,”especially”,”everything”,”everywhere”,”furthering”,”importance”,”interested”,”particular”,”presenting”,”presumably”,”previously”,”reasonably”,”regardless”,”relatively”,”specifying”,”themselves”,”themselves”,”thereafter”,”thoroughly”,”throughout”,”underneath”,”usefulness”,”whereafter”,”yourselves”,”accordingly”,”appropriate”,”considering”,”differently”,”furthermore”,”immediately”,”information”,”interesting”,”necessarily”,”nonetheless”,”potentially”,”significant”,”consequently”,”nevertheless”,”particularly”,”respectively”,”specifically”,”successfully”,”sufficiently”,”approximately”,”corresponding”,”predominantly”,”significantly”,”substantially”,”unfortunately”,”notwithstanding”]\n\nfunction cleantext(txtin,removenumbers,removesymbols,removewordsmin3, removespaces)\n\n{\n\n//Remove contractions\n\ntxtin = txtin.replace(/\\’m/g,’ am’)\n\ntxtin = txtin.replace(/\\’re/g,’ are’)\n\ntxtin = txtin.replace(/\\blet\\’s\\b/g,’let us’)\n\ntxtin = txtin.replace(/\\’s/g,’ is’)\n\ntxtin = txtin.replace(/ain\\’t/g,’ is not it’)\n\ntxtin = txtin.replace(/n\\’t/g,’ not’)\n\ntxtin = txtin.replace(/\\’ll/g,’ will’)\n\ntxtin = txtin.replace(/\\’d/g,’ would’)\n\ntxtin = txtin.replace(/\\’ve/g,’ have’)\n\ntxtin = txtin.replace(/\\lemme/g,’ let me’)\n\ntxtin = txtin.replace(/\\gimme/g,’ give me’)\n\ntxtin = txtin.replace(/\\wanna/g,’ want to’)\n\ntxtin = txtin.replace(/\\gonna/g,’ going to’)\n\ntxtin = txtin.replace(/r u /g,’are you’)\n\ntxtin = txtin.replace(/\\bim\\b/g,’i am’)\n\ntxtin = txtin.replace(/\\bwhats\\b/g,’what is’)\n\ntxtin = txtin.replace(/\\bwheres\\b/g,’where is’)\n\ntxtin = txtin.replace(/\\bwhos\\b/g,’who is’)\n\n//Remove numbers\n\nif (removenumbers > 0) {\n\nfor (i=0;i<stopwordnumbers.length;i++)\n\n{\n\nvar re = new RegExp(“\\\\b”+stopwordnumbers[i]+”\\\\b”, ‘g’);\n\ntxtin = txtin.replace(re,””)\n\ntxtin = txtin.replace(/[0–9]/g,” “).replace(/ \\. /g,” “)\n\n}\n\n}\n\n//Remove words (very long list!)\n\nif (removewordsmin3 > 0) {\n\nfor (i=0;i<stopwordsmin3.length;i++)\n\n{\n\nvar re = new RegExp(“\\\\b”+stopwordsmin3[i]+”\\\\b”, ‘g’);\n\ntxtin = txtin.replace(re,””)\n\n}\n\n}\n\n//Remove symbols\n\nif (removesymbols > 0) {\n\nfor (i=0;i<stopwordsymbols.length;i++)\n\n{\n\nvar re = new RegExp(“\\\\”+stopwordsymbols[i], ‘g’);\n\ntxtin = txtin.replace(re,””)\n\n}\n\n}\n\n//Remove spaces\n\nif (removespaces > 0) { txtin = txtin.replace(/ /g,” “); txtin = txtin.replace(/ /g,” “); txtin = txtin.replace(/ /g,” “); txtin = txtin.replace(/ /g,” “); txtin = txtin.replace(/ /g,” “); txtin = txtin.replace(/ /g,” “); txtin = txtin.replace(/ /g,” “); txtin = txtin.replace(/ /g,” “); txtin = txtin.replace(/ /g,” “); txtin = txtin.replace(/ /g,” “); txtin = txtin.replace(/ /g,” “); txtin = txtin.replace(/ /g,” “); txtin = txtin.replace(/ /g,” “); txtin = txtin.replace(/ /g,” “); txtin = txtin.replace(/ /g,” “); }\n\nreturn txtin.trim()\n\n}\n\nThird, each word of the list cleaned up above is searched inside the information paragraph. When a word is found, the whole sentence that includes it is extracted. All the sentences found for each and all of the relevant words are put together into a paragraph that is then fed to GPT-3 for few-shot learning.\n\nLast, this paragraph of relevant sentences is appended to a basic prompt designed to set GPT-3 as a bot that must reply to questions, and the user’s input is added at the end. Then all this is sent to GPT-3 through the API (I’m now using davinci003). When the reply from GPT-3 is received, the full prompt is removed, resulting in only the answer to the user’s input. All this last step is essentially the same as in my original app described in my previous tutorial.\n\nContinuity\n\nTo provide continuity, I save all the user inputs and chatbot outputs in a continuous string. So, each time I call GPT-3, I use the basic prompt followed by this history of all the user’s inputs and chatbot’s answers, followed by the sentences retrieved from the information paragraph and then the questions, as explained above.\n\nDoes the whole prompt sent to GPT-3 consists of a concatenation of:\n\nBasic paragraph setting up how the bot works | Conversation carried out so far | Sentences retrieved from the information paragraphs | User input\n\nIn this way, the chatbot automatically understands the flow of the conversation, helping to maintain its logical flow. And as we saw earlier, each call to GPT-3 can include information retrieved from a customizable paragraph.\n\nA nice graphical interface\n\nA GUI is an important aspect of a program because it allows users to interact with it in a more intuitive and visually appealing way. A well-designed GUI can make a program more user-friendly, easier to navigate, and more efficient to use. On the contrary, a poorly designed GUI can make a program difficult to use and discourage users from using it.\n\nThe GUI in my previous tutorial looked awful!\n\nTo create a better GUI, it helps to format your HTML with some CSS, which can easily control the layout, colors, fonts, and other style elements of a webpage or web app, without the need for any actual programming. CSS can help you create nice GUIs by applying consistent styling to the elements of a webpage, making it visually appealing and easier to navigate, and also adjusting itself automatically to, for example screens of different sizes.\n\nBut… you must know CSS, and I’m not really good at it! Fortunately, ChatGPT knows quite a bit about how to couple HTML and CSS. So I won’t lie to you: 90% of the CSS in my app was created by ChatGPT -not all automatically, as I had to ask for several suggestions.\n\nHere’s what the CSS in my new chatbot looks like. Note where you see “/* Add this rule to…” this is ChatGPT replying to my specific questions about how to format certain styles in special ways.\n\n<style>#chatbot { width: 90%; height: 90%; border: 1px solid #ccc; border-radius: 4px; overflow: auto;\n\n/* Add this rule to set the background color to light grey */ background-color: lightgrey; /* OR add this rule to set the background color to light yellow */ background-color: lightyellow;}\n\n#conversation { padding: 10px;}\n\n.message { margin-bottom: 5px; padding: 8px; border-radius: 4px; width: 80%; /* Add this rule */ border: 1px solid darkgrey; margin-left: auto; margin-right: auto;}\n\n.user { background-color: #eee; /* Add this rule */ background-color: lightgreen; /* Add this rule */ margin-left: auto; margin-right: 0;}\n\n.chatbot { background-color: #ddd; /* Add this rule */ background-color: white; /* Add this rule */ margin-left: 0; margin-right: auto;}\n\n#chatbot-form { display: flex; margin-top: 10px; margin-left: 5%; width: 90%; padding: 15px;}\n\n#chatbot-input { flex-grow: 1; padding: 10px; border: 1px solid #ccc; border-radius: 4px;}\n\n#settingsdiv { flex-grow: 1; padding: 5px; border: 1px solid #ccc; border-radius: 3px; margin-left: 5%; margin-right: auto; width: 100%;}\n\n/*#apikey { flex-grow: 1; padding: 5px; border: 1px solid #ccc; border-radius: 3px; margin-left: 5%; margin-right: auto; width: 50%;}*/\n\nbutton[type=”submit”] { margin-left: 10px; padding: 10px; border: none; background-color: #0084ff; color: #fff; cursor: pointer; border-radius: 4px;}</style>\n\nIf you want to know more about how I’m using ChatGPT to assist my coding, see this:\n\nCreating JavaScript functions and web apps with GPT-3’s free code writer\n\nPowerful to write up functions, convert between languages, and even draft web apps. All with examples you can run…\n\njavascript.plainenglish.io\n\nIf you doubt AI will ever be helpful for work, look at how ChatGPT lent me a hand in the most…\n\nHelping me write code and teaching me at the same time, in a real-world application to actual work.\nmedium.com\n\nConclusion + possible evolution and applications of these chatbots\n\nIn conclusion, in this article, I presented a method for creating chatbots powered by GPT-3 that can be integrated into websites and “trained” with customized information (with these quotes, I mean that this is not formal training but just few-shot learning). The result of the example presented here is a quite “intelligent” chatbot with a nice GUI, much like ChatGPT’s, that can respond to a wide range of questions and topics, including some highly specific ones that regular GPT-3 will not know about.\n\nChatbots built in this way are able to understand and respond to human language, with three key improvements over my previously described chatbot: the ability to selectively extract information from user-customized paragraphs, the ability to continue a fluent conversation, and integration with a nice chat-like GUI.\n\nThe example further highlights the power of full web programming, here based on HTML, CSS, and JavaScript on the client and PHP in the backend. It also demonstrates the power of very complex programs like GPT-3 being accessible programmatically through APIs.\n\nIn its present form, this tool works as a framework on which to rapidly build automated chatbots for various applications such as: assisting businesses in providing customer service, delivering personalized chat experiences, serving as web-based personal assistants, retrieving highly specific information from large complex articles, guiding visitors of a website, and much more.\n\n→ To try out this chatbot, get an API key from OpenAI here and get in touch with me.\n\nFurther reads\n\nTo see more of my articles on GPT-3:\n\nAll my articles on GPT-3 as of October 2022\n\nMy favorite language model and how to use it for multiple purposes in online applications with pure JavaScript and…\nlucianosphere.medium.com\n\nFor another project using language models in JavaScript, in this case ESMFold for protein structure prediction:\nwww.lucianoabriata.com I write and photoshoot about everything that lies in my broad sphere of interests: nature, science, technology, programming, etc. Become a Medium member to access all its stories (affiliate links of the platform for which I get small revenues without cost to you) and subscribe to get my new stories by email. To consult about small jobs check my services page here. You can contact me here."
+    }
+  ],
+  "status": "success",
+  "output": [
+    {
+      "text_generated_by_step_name": "html-extract-article",
+      "text_generated_by_step_id": 1,
+      "contents": [
+        {
+          "utterance": "Build ChatGPT-like Chatbots With Customized Knowledge for Your Websites, Using Simple Programming\n\nLike ChatGPT but in a form that you can plug into your website and expand with any kind of tailored information by combining basic “old-school” NLP with cutting-edge GPT-3.\n\nIntroduction\n\nBeing the end of 2022, it’s quite likely that you’ve heard about ChatGPT and even witnessed its power by using it. ChatGPT is a revolutionary artificial intelligence technology that allows users to have natural conversations with a very smart chatbot. Its unique ability to understand and respond to human language has made it a popular choice for businesses looking to improve customer service, as well as for individuals seeking a more personalized chat experience.\n\nAs impressive as ChatGPT is, it would be even cooler if there was a way to integrate it into your own website and train it with customized information. Imagine being able to create a chatbot that is tailored to your business or one that can hold intelligent conversations with your friends and family.\n\nThis is all possible with technologies that are just an API call away and that you can integrate seamlessly into web pages, web apps, and websites.\n\nIn this article, I will show you how to create a good-looking chatbot powered by GPT3, using HTML, CSS, and JavaScript on the client and PHP on the server. Through old-style string natural language processing, the chatbot searches for relevant sources of information in your custom-prepared sources. Then, it uses the retrieved information for few-shot learning with GPT-3 as it adds on the user’s input. The produced answer is then displayed, all in a nice GUI like that expected for a fully-fledged chatbot. The overall result is a quite smart chatbot, like ChatGPT, further able to respond about things that regular GPT-3 or ChatGPT don’t know about, in a nice, easy-to-use graphical format.\n\nHere you can see it in action, replying to questions that regular GPT-3 doesn’t know about (for example, about myself) but are here retrieved from some customized texts, and also replying to questions that GPT-3 knows from its default training (see the question about declaring variables in JavaScript):\n\nLike it?\n\nFeel excited to insert a similar chatbot in your website?\n\nSo, let’s get started!\n\nThe brain\n\nThe core of this chatbot is GPT-3 (I used here the latest davinci model, called text-davinci-003) accessed through a PHP library as explained here:\n\nBuild custom-informed GPT-3-based chatbots for your website with very simple code\n\nLearn about GPT-3, PHP and JavaScript as you build an online GPT-3 based chatbot specialized in a given topic that you…\ntowardsdatascience.com\n\nIn that very detailed tutorial, I explained how to use a JavaScript function in a PHP library that handles calls to OpenAI’s API for GPT-3 models. The JavaScript call passes a prompt containing a question from the user and the API key provided by the user (although, of course you could provide this directly in the PHP code, then you’ll have to pay for the tokens consumed). GPT-3 then replies with a text completion from which the chatbot’s answer to the user’s input is extracted and displayed.\n\nIf you have a website with full control, you can simply install PHP… or you probably already have it. In my case, I have PHP already installed because I use Altervista -an amazing free hosting service:\n\nAltervista: The Best Free Web Hosting Out There For Me\n\nEnabling JavaScript and even PHP for free with a super simple coding environment.\njavascript.plainenglish.io\n\nMy article on building GPT-3 bots is already around 1 month old. And since then, I have built learned a lot and done many experiments that allowed me to come up with a much better “product”.\n\nMore specifically, relative to the chatbot described in my previous tutorial, I have now come up with three very important improvements: the ability to selectively extract pieces of information from user-customized paragraphs, the ability to continue a fluent conversation by “remembering” it as it goes, and the integration of the system with a nice chat-like GUI.\n\n- The ability to selectively extract pieces of information from user-customized paragraphs allows your chatbot to reply to questions that it would otherwise have to either decline or answer without certainty, hence risking that it makes up stuff.\n- Continuity allows you to use wildcard words such as “it”, “them”, etc. to refer to objects you were just talking about, yet the chatbot understands what you are referring to. This is essential for a smooth experience and to have a natural chat.\n- Meanwhile, a nice GUI also provides a better user experience and makes the app fit correctly on screens of different sizes.\n\nExtracting customized information\n\nTo extract customized information, I tried several approaches based on “old school” NLP. I ended up doing it this way, which worked best:\n\nFirst, at the core of the approach, I set up a long paragraph full of information. It’s very long, certainly much longer than the number of tokens accepted by GPT-3. Hence it cannot be fed in full for few-shot learning. That’s where old-school NLP helps: to extract a relevant pieces of information, short enough to be fed into GPT-3.\n\nSecond, when the human’s input is processed, it is cleaned up of stopwords, symbols, numbers, etc., by a simple procedure that ends up leaving only meaningful words (or of presumed relevance). Each of these words is searched inside the long paragraph containing the customized information (see step three below).\n\nTo clean up these stopwords (and also numbers, contractions, symbols, repeated spaces, etc.) I use a quite simple approach based on regular expressions and large lists of strings to search.\n\nThese lists are painful to prepare, so just serve yourself:\n\n//Define lists of words and symbols to filter out\n\n//Numbers and similar\n\nvar stopwordnumbers = [“once”, “twice”, “thrice”, “first”, “second”, “third”, “fourth”, “fifth”, “sixth”, “seventh”, “nineth”, “tenth”, “1”, “2”, “3”, “4”, “5”, “6”, “7”, “8”, “9”, “0”, “one”, “two”, “three”, “four”, “five”, “six”, “seven”, “eight”, “nine”, “ten”, , “eleven”, “twelve”, “thirteen”, “fourteen”, “fifteen”, “sixteen”, “seventeen”, “eighteen”, “tweenty”, “thirty”, “fourty”, “fifty”, “sixty”, “seventy”, “eighty”, “ninety”, “hundred”, “hundreds”, “and”, “-”, “thousand”, “thousands”, “million”, “millions”, “billion”, “billions” ];\n\n//Symbols\n\nvar stopwordsymbols = [“+”,”-”,”*”,”%”,”/”,”?”,”!”,”^”,”’”,”\\””,”,”,”;”,”\\\\”,”.”]\n\n//Very short words and others, compiled by me from several resources including https://github.com/Yoast/YoastSEO.js/blob/develop/src/config/stopwords.js and https://gist.github.com/sebleier/554280\n\nvar stopwordsmin3=[\"if\", \"or\", \"in\", “a”,”an”,”cool”,”good”,”yep”,”yeah”,”but”,”yes”,”no”,”nop”,”nope”,”sth”,”something”,”anything”,”tell”,”me”,”i”,”want”,”to”,”know”,”asked”,”curious”,”asked”,”ask”,”question”,”answer”,”reply”,”sentence”,”about”,”up”,”yep”,”yeap”,”hi”,”hey”,”will”,”not”,”yes”,”is”,”it”,”he”,”she”,”they”,”them”,”theirs”,”us”,”our”,”we”,”you”,”your”,”yours”,”a”,”ah”,”lol”,”thanks”,”do”,”please”,”pls”,”plis”,”xd”,”wait”,”caca”, “yeah”, “no”, “ok”, “act”,”adj”,”ago”,”ain”,”all”,”and”,”any”,”are”,”a’s”,”ask”,”big”,”but”,”buy”,”can”,”cit”,”co.”,”com”,”con”,”cry”,”c’s”,”did”,”don”,”due”,”edu”,”end”,”est”,”etc”,”far”,”few”,”fix”,”for”,”get”,”gmt”,”got”,”gov”,”had”,”has”,”hed”,”her”,”hes”,”hid”,”him”,”his”,”how”,”htm”,”i’d”,”ill”,”i’m”,”inc”,”int”,”isn”,”itd”,”its”,”ive”,”les”,”let”,”’ll”,”los”,”low”,”ltd”,”man”,”may”,”men”,”mil”,”mrs”,”mug”,”nay”,”net”,”new”,”non”,”nor”,”nos”,”not”,”now”,”off”,”ohh”,”old”,”omg”,”one”,”ord”,”org”,”our”,”out”,”own”,”par”,”pas”,”per”,”put”,”que”,”ran”,”ref”,”run”,”saw”,”say”,”sec”,”see”,”she”,”six”,”sub”,”sup”,”ten”,”the”,”til”,”tip”,”tis”,”too”,”top”,”try”,”t’s”,”two”,”ups”,”use”,”’ve”,”via”,”viz”,”vol”,”was”,”way”,”web”,”wed”,”who”,”why”,”won”,”www”,”yes”,”yet”,”you”,”able”,”abst”,”aint”,”also”,”amid”,”area”,”aren”,”arpa”,”asks”,”auth”,”away”,”back”,”been”,”best”,”bill”,”biol”,”both”,”call”,”came”,”cant”,”case”,”cmon”,”come”,”copy”,”dare”,”date”,”dear”,”didn”,”does”,”done”,”dont”,”down”,”each”,”else”,”ends”,”even”,”ever”,”face”,”fact”,”felt”,”fify”,”fill”,”find”,”fire”,”five”,”four”,”free”,”from”,”full”,”gave”,”gets”,”give”,”goes”,”gone”,”good”,”hadn”,”half”,”hasn”,”have”,”he’d”,”hell”,”help”,”here”,”hers”,”he’s”,”high”,”home”,”html”,”http”,”i.e.”,”ibid”,”i’ll”,”inc.”,”into”,”isnt”,”it’d”,”itll”,”it’s”,”i’ve”,”join”,”just”,”keep”,”kept”,”keys”,”kind”,”knew”,”know”,”last”,”less”,”lest”,”lets”,”like”,”line”,”long”,”look”,”made”,”make”,”many”,”mean”,”mill”,”mine”,”miss”,”more”,”most”,”move”,”msie”,”much”,”must”,”name”,”near”,”need”,”next”,”nine”,”none”,”null”,”okay”,”once”,”ones”,”only”,”onto”,”open”,”ours”,”over”,”page”,”part”,”past”,”plus”,”pmid”,”puts”,”refs”,”ring”,”room”,”said”,”same”,”says”,”seem”,”seen”,”sees”,”self”,”sent”,”shan”,”shed”,”shes”,”show”,”side”,”site”,”some”,”soon”,”stop”,”such”,”sure”,”take”,”tell”,”test”,”text”,”than”,”that”,”them”,”then”,”they”,”thin”,”this”,”thou”,”thru”,”thus”,”till”,”’tis”,”took”,”turn”,”twas”,”unto”,”upon”,”used”,”uses”,”uucp”,”very”,”vols”,”want”,”wasn”,”ways”,”we’d”,”well”,”went”,”were”,”weve”,”what”,”when”,”whim”,”whod”,”whom”,”whos”,”will”,”wish”,”with”,”wont”,”work”,”year”,”youd”,”your”,”zero”,”about”,”above”,”added”,”after”,”again”,”ahead”,”ain’t”,”allow”,”alone”,”along”,”among”,”apart”,”areas”,”arent”,”arise”,”aside”,”asked”,”backs”,”began”,”begin”,”being”,”below”,”brief”,”can’t”,”cases”,”cause”,”clear”,”click”,”c’mon”,”comes”,”could”,”didnt”,”doesn”,”doing”,”don’t”,”downs”,”early”,”eight”,”empty”,”ended”,”et-al”,”every”,”faces”,”facts”,”fewer”,”fifth”,”fifty”,”finds”,”first”,”forth”,”forty”,”found”,”front”,”fully”,”given”,”gives”,”going”,”goods”,”great”,”group”,”hadnt”,”hasnt”,”haven”,”he’ll”,”hello”,”hence”,”heres”,”how’d”,”how’s”,”index”,”inner”,”isn’t”,”it’ll”,”itse””,”keeps”,”known”,”knows”,”large”,”later”,”least”,”let’s”,”liked”,”looks”,”lower”,”makes”,”maybe”,”maynt”,”means”,”might”,”minus”,”mustn”,”needn”,”needs”,”never”,”newer”,”noone”,”noted”,”novel”,”often”,”older”,”one’s”,”opens”,”order”,”other”,”ought”,”owing”,”pages”,”parts”,”place”,”point”,”proud”,”quite”,”right”,”rooms”,”round”,”seems”,”seven”,”shall”,”shant”,”she’d”,”shell”,”she’s”,”shown”,”shows”,”sides”,”since”,”sixty”,”small”,”sorry”,”state”,”still”,”taken”,”tends”,”thank”,”thanx”,”thats”,”their”,”there”,”these”,”theyd”,”thick”,”thing”,”think”,”third”,”those”,”three”,”today”,”tried”,”tries”,”truly”,”turns”,”’twas”,”twice”,”under”,”until”,”using”,”value”,”wants”,”wasnt”,”we’ll”,”wells”,”we’re”,”weren”,”we’ve”,”whats”,”where”,”which”,”while”,”who’d”,”whole”,”wholl”,”who’s”,”whose”,”why’d”,”why’s”,”width”,”won’t”,”words”,”works”,”world”,”would”,”years”,”you’d”,”youll”,”young”,”youre”,”yours”,”youve”,”abroad”,”across”,”allows”,”almost”,”always”,”amidst”,”amount”,”anyhow”,”anyone”,”anyway”,”appear”,”aren’t”,”around”,”asking”,”backed”,”became”,”become”,”before”,”begins”,”behind”,”beings”,”beside”,”better”,”beyond”,”bottom”,”cannot”,”causes”,”couldn”,”course”,”darent”,”detail”,”didn’t”,”differ”,”doesnt”,”downed”,”during”,”effect”,”eighty”,”either”,”eleven”,”ending”,”enough”,”evenly”,”except”,”fairly”,”former”,”giving”,”gotten”,”groups”,”hadn’t”,”hardly”,”hasn’t”,”havent”,”having”,”hereby”,”herein”,”here’s”,”higher”,”himse””,”hither”,”how’ll”,”indeed”,”inside”,”inward”,”itself”,”lately”,”latest”,”latter”,”length”,”likely”,”little”,”longer”,”mainly”,”making”,”mayn’t”,”member”,”merely”,”mightn”,”mostly”,”mustnt”,”myself”,”namely”,”nearly”,”needed”,”neednt”,”neverf”,”newest”,”ninety”,”nobody”,”no-one”,”number”,”obtain”,”oldest”,”opened”,”orders”,”others”,”parted”,”placed”,”places”,”please”,”points”,”poorly”,”rather”,”really”,”recent”,”saying”,”second”,”seeing”,”seemed”,”selves”,”shan’t”,”she’ll”,”should”,”showed”,”showns”,”states”,”system”,”taking”,”thanks”,”thatll”,”that’s”,”thatve”,”theirs”,”thence”,”thered”,”theres”,”they’d”,”theyll”,”theyre”,”theyve”,”thickv”,”things”,”thinks”,”thirty”,”though”,”throug”,”toward”,”trying”,”turned”,”twelve”,”twenty”,”unless”,”unlike”,”useful”,”versus”,”wanted”,”wasn’t”,”well-b”,”werent”,”what’d”,”whatll”,”what’s”,”whatve”,”whence”,”when’d”,”when’s”,”wheres”,”whilst”,”who’ll”,”why’ll”,”widely”,”within”,”wonder”,”worked”,”wouldn”,”you’ll”,”you’re”,”you’ve”,”adopted”,”affects”,”against”,”already”,”amongst”,”another”,”anybody”,”anymore”,”anyways”,”awfully”,”backing”,”because”,”becomes”,”believe”,”besides”,”between”,”billion”,”briefly”,”caption”,”certain”,”changes”,”clearly”,”contain”,”couldnt”,”daren’t”,”despite”,”doesn’t”,”downing”,”exactly”,”example”,”farther”,”fifteen”,”follows”,”forever”,”forward”,”further”,”general”,”getting”,”greater”,”grouped”,”happens”,”haven’t”,”herself”,”highest”,”himself”,”howbeit”,”however”,”hundred”,”ignored”,”insofar”,”instead”,”largely”,”longest”,”looking”,”members”,”mightnt”,”million”,”mustn’t”,”must’ve”,”needing”,”needn’t”,”neither”,”nothing”,”nowhere”,”numbers”,”omitted”,”opening”,”ordered”,”oughtnt”,”outside”,”overall”,”parting”,”perhaps”,”pointed”,”present”,”problem”,”quickly”,”readily”,”regards”,”related”,”results”,”seconds”,”section”,”seeming”,”serious”,”seventy”,”several”,”shouldn”,”showing”,”similar”,”sincere”,”smaller”,”someday”,”somehow”,”someone”,”specify”,”suggest”,”that’ll”,”that’ve”,”thereby”,”there’d”,”therein”,”therell”,”thereof”,”therere”,”there’s”,”thereto”,”thereve”,”they’ll”,”they’re”,”they’ve”,”thoughh”,”thought”,”through”,”towards”,”turning”,”undoing”,”upwards”,”usually”,”various”,”wanting”,”webpage”,”website”,”welcome”,”weren’t”,”what’ll”,”what’ve”,”when’ll”,”whereas”,”whereby”,”where’d”,”wherein”,”where’s”,”whether”,”whither”,”whoever”,”willing”,”without”,”working”,”wouldnt”,”younger”,”actually”,”affected”,”although”,”amoungst”,”announce”,”anything”,”anywhere”,”backward”,”becoming”,”computer”,”consider”,”contains”,”couldn’t”,”could’ve”,”describe”,”directly”,”doubtful”,”entirely”,”evermore”,”everyone”,”followed”,”formerly”,”furthers”,”greatest”,”grouping”,”hereupon”,”homepage”,”inasmuch”,”indicate”,”interest”,”latterly”,”likewise”,”meantime”,”mightn’t”,”might’ve”,”moreover”,”netscape”,”normally”,”obtained”,”opposite”,”ordering”,”oughtn’t”,”pointing”,”possible”,”possibly”,”presents”,”probably”,”problems”,”promptly”,”provided”,”provides”,”recently”,”research”,”reserved”,”resulted”,”secondly”,”sensible”,”shouldnt”,”slightly”,”smallest”,”somebody”,”somethan”,”sometime”,”somewhat”,”strongly”,”there’ll”,”there’re”,”there’ve”,”thorough”,”thoughts”,”thousand”,”together”,”trillion”,”unlikely”,”usefully”,”whatever”,”whenever”,”where’ll”,”wherever”,”whomever”,”wouldn’t”,”would’ve”,”youngest”,”yourself”,”ableabout”,”according”,”affecting”,”alongside”,”available”,”backwards”,”beginning”,”certainly”,”currently”,”described”,”different”,”downwards”,”elsewhere”,”everybody”,”following”,”furthered”,”generally”,”greetings”,”hereafter”,”hopefully”,”immediate”,”important”,”indicated”,”indicates”,”interests”,”invention”,”meanwhile”,”microsoft”,”necessary”,”neverless”,”obviously”,”otherwise”,”ourselves”,”pagecount”,”presented”,”primarily”,”regarding”,”resulting”,”seriously”,”shouldn’t”,”should’ve”,”similarly”,”something”,”sometimes”,”somewhere”,”specified”,”therefore”,”thereupon”,”volumtype”,”whereupon”,”whichever”,”accordance”,”afterwards”,”apparently”,”appreciate”,”associated”,”beforehand”,”beginnings”,”concerning”,”containing”,”definitely”,”especially”,”everything”,”everywhere”,”furthering”,”importance”,”interested”,”particular”,”presenting”,”presumably”,”previously”,”reasonably”,”regardless”,”relatively”,”specifying”,”themselves”,”themselves”,”thereafter”,”thoroughly”,”throughout”,”underneath”,”usefulness”,”whereafter”,”yourselves”,”accordingly”,”appropriate”,”considering”,”differently”,”furthermore”,”immediately”,”information”,”interesting”,”necessarily”,”nonetheless”,”potentially”,”significant”,”consequently”,”nevertheless”,”particularly”,”respectively”,”specifically”,”successfully”,”sufficiently”,”approximately”,”corresponding”,”predominantly”,”significantly”,”substantially”,”unfortunately”,”notwithstanding”]\n\nfunction cleantext(txtin,removenumbers,removesymbols,removewordsmin3, removespaces)\n\n{\n\n//Remove contractions\n\ntxtin = txtin.replace(/\\’m/g,’ am’)\n\ntxtin = txtin.replace(/\\’re/g,’ are’)\n\ntxtin = txtin.replace(/\\blet\\’s\\b/g,’let us’)\n\ntxtin = txtin.replace(/\\’s/g,’ is’)\n\ntxtin = txtin.replace(/ain\\’t/g,’ is not it’)\n\ntxtin = txtin.replace(/n\\’t/g,’ not’)\n\ntxtin = txtin.replace(/\\’ll/g,’ will’)\n\ntxtin = txtin.replace(/\\’d/g,’ would’)\n\ntxtin = txtin.replace(/\\’ve/g,’ have’)\n\ntxtin = txtin.replace(/\\lemme/g,’ let me’)\n\ntxtin = txtin.replace(/\\gimme/g,’ give me’)\n\ntxtin = txtin.replace(/\\wanna/g,’ want to’)\n\ntxtin = txtin.replace(/\\gonna/g,’ going to’)\n\ntxtin = txtin.replace(/r u /g,’are you’)\n\ntxtin = txtin.replace(/\\bim\\b/g,’i am’)\n\ntxtin = txtin.replace(/\\bwhats\\b/g,’what is’)\n\ntxtin = txtin.replace(/\\bwheres\\b/g,’where is’)\n\ntxtin = txtin.replace(/\\bwhos\\b/g,’who is’)\n\n//Remove numbers\n\nif (removenumbers > 0) {\n\nfor (i=0;i<stopwordnumbers.length;i++)\n\n{\n\nvar re = new RegExp(“\\\\b”+stopwordnumbers[i]+”\\\\b”, ‘g’);\n\ntxtin = txtin.replace(re,””)\n\ntxtin = txtin.replace(/[0–9]/g,” “).replace(/ \\. /g,” “)\n\n}\n\n}\n\n//Remove words (very long list!)\n\nif (removewordsmin3 > 0) {\n\nfor (i=0;i<stopwordsmin3.length;i++)\n\n{\n\nvar re = new RegExp(“\\\\b”+stopwordsmin3[i]+”\\\\b”, ‘g’);\n\ntxtin = txtin.replace(re,””)\n\n}\n\n}\n\n//Remove symbols\n\nif (removesymbols > 0) {\n\nfor (i=0;i<stopwordsymbols.length;i++)\n\n{\n\nvar re = new RegExp(“\\\\”+stopwordsymbols[i], ‘g’);\n\ntxtin = txtin.replace(re,””)\n\n}\n\n}\n\n//Remove spaces\n\nif (removespaces > 0) { txtin = txtin.replace(/ /g,” “); txtin = txtin.replace(/ /g,” “); txtin = txtin.replace(/ /g,” “); txtin = txtin.replace(/ /g,” “); txtin = txtin.replace(/ /g,” “); txtin = txtin.replace(/ /g,” “); txtin = txtin.replace(/ /g,” “); txtin = txtin.replace(/ /g,” “); txtin = txtin.replace(/ /g,” “); txtin = txtin.replace(/ /g,” “); txtin = txtin.replace(/ /g,” “); txtin = txtin.replace(/ /g,” “); txtin = txtin.replace(/ /g,” “); txtin = txtin.replace(/ /g,” “); txtin = txtin.replace(/ /g,” “); }\n\nreturn txtin.trim()\n\n}\n\nThird, each word of the list cleaned up above is searched inside the information paragraph. When a word is found, the whole sentence that includes it is extracted. All the sentences found for each and all of the relevant words are put together into a paragraph that is then fed to GPT-3 for few-shot learning.\n\nLast, this paragraph of relevant sentences is appended to a basic prompt designed to set GPT-3 as a bot that must reply to questions, and the user’s input is added at the end. Then all this is sent to GPT-3 through the API (I’m now using davinci003). When the reply from GPT-3 is received, the full prompt is removed, resulting in only the answer to the user’s input. All this last step is essentially the same as in my original app described in my previous tutorial.\n\nContinuity\n\nTo provide continuity, I save all the user inputs and chatbot outputs in a continuous string. So, each time I call GPT-3, I use the basic prompt followed by this history of all the user’s inputs and chatbot’s answers, followed by the sentences retrieved from the information paragraph and then the questions, as explained above.\n\nDoes the whole prompt sent to GPT-3 consists of a concatenation of:\n\nBasic paragraph setting up how the bot works | Conversation carried out so far | Sentences retrieved from the information paragraphs | User input\n\nIn this way, the chatbot automatically understands the flow of the conversation, helping to maintain its logical flow. And as we saw earlier, each call to GPT-3 can include information retrieved from a customizable paragraph.\n\nA nice graphical interface\n\nA GUI is an important aspect of a program because it allows users to interact with it in a more intuitive and visually appealing way. A well-designed GUI can make a program more user-friendly, easier to navigate, and more efficient to use. On the contrary, a poorly designed GUI can make a program difficult to use and discourage users from using it.\n\nThe GUI in my previous tutorial looked awful!\n\nTo create a better GUI, it helps to format your HTML with some CSS, which can easily control the layout, colors, fonts, and other style elements of a webpage or web app, without the need for any actual programming. CSS can help you create nice GUIs by applying consistent styling to the elements of a webpage, making it visually appealing and easier to navigate, and also adjusting itself automatically to, for example screens of different sizes.\n\nBut… you must know CSS, and I’m not really good at it! Fortunately, ChatGPT knows quite a bit about how to couple HTML and CSS. So I won’t lie to you: 90% of the CSS in my app was created by ChatGPT -not all automatically, as I had to ask for several suggestions.\n\nHere’s what the CSS in my new chatbot looks like. Note where you see “/* Add this rule to…” this is ChatGPT replying to my specific questions about how to format certain styles in special ways.\n\n<style>#chatbot { width: 90%; height: 90%; border: 1px solid #ccc; border-radius: 4px; overflow: auto;\n\n/* Add this rule to set the background color to light grey */ background-color: lightgrey; /* OR add this rule to set the background color to light yellow */ background-color: lightyellow;}\n\n#conversation { padding: 10px;}\n\n.message { margin-bottom: 5px; padding: 8px; border-radius: 4px; width: 80%; /* Add this rule */ border: 1px solid darkgrey; margin-left: auto; margin-right: auto;}\n\n.user { background-color: #eee; /* Add this rule */ background-color: lightgreen; /* Add this rule */ margin-left: auto; margin-right: 0;}\n\n.chatbot { background-color: #ddd; /* Add this rule */ background-color: white; /* Add this rule */ margin-left: 0; margin-right: auto;}\n\n#chatbot-form { display: flex; margin-top: 10px; margin-left: 5%; width: 90%; padding: 15px;}\n\n#chatbot-input { flex-grow: 1; padding: 10px; border: 1px solid #ccc; border-radius: 4px;}\n\n#settingsdiv { flex-grow: 1; padding: 5px; border: 1px solid #ccc; border-radius: 3px; margin-left: 5%; margin-right: auto; width: 100%;}\n\n/*#apikey { flex-grow: 1; padding: 5px; border: 1px solid #ccc; border-radius: 3px; margin-left: 5%; margin-right: auto; width: 50%;}*/\n\nbutton[type=”submit”] { margin-left: 10px; padding: 10px; border: none; background-color: #0084ff; color: #fff; cursor: pointer; border-radius: 4px;}</style>\n\nIf you want to know more about how I’m using ChatGPT to assist my coding, see this:\n\nCreating JavaScript functions and web apps with GPT-3’s free code writer\n\nPowerful to write up functions, convert between languages, and even draft web apps. All with examples you can run…\n\njavascript.plainenglish.io\n\nIf you doubt AI will ever be helpful for work, look at how ChatGPT lent me a hand in the most…\n\nHelping me write code and teaching me at the same time, in a real-world application to actual work.\nmedium.com\n\nConclusion + possible evolution and applications of these chatbots\n\nIn conclusion, in this article, I presented a method for creating chatbots powered by GPT-3 that can be integrated into websites and “trained” with customized information (with these quotes, I mean that this is not formal training but just few-shot learning). The result of the example presented here is a quite “intelligent” chatbot with a nice GUI, much like ChatGPT’s, that can respond to a wide range of questions and topics, including some highly specific ones that regular GPT-3 will not know about.\n\nChatbots built in this way are able to understand and respond to human language, with three key improvements over my previously described chatbot: the ability to selectively extract information from user-customized paragraphs, the ability to continue a fluent conversation, and integration with a nice chat-like GUI.\n\nThe example further highlights the power of full web programming, here based on HTML, CSS, and JavaScript on the client and PHP in the backend. It also demonstrates the power of very complex programs like GPT-3 being accessible programmatically through APIs.\n\nIn its present form, this tool works as a framework on which to rapidly build automated chatbots for various applications such as: assisting businesses in providing customer service, delivering personalized chat experiences, serving as web-based personal assistants, retrieving highly specific information from large complex articles, guiding visitors of a website, and much more.\n\n→ To try out this chatbot, get an API key from OpenAI here and get in touch with me.\n\nFurther reads\n\nTo see more of my articles on GPT-3:\n\nAll my articles on GPT-3 as of October 2022\n\nMy favorite language model and how to use it for multiple purposes in online applications with pure JavaScript and…\nlucianosphere.medium.com\n\nFor another project using language models in JavaScript, in this case ESMFold for protein structure prediction:\nwww.lucianoabriata.com I write and photoshoot about everything that lies in my broad sphere of interests: nature, science, technology, programming, etc. Become a Medium member to access all its stories (affiliate links of the platform for which I get small revenues without cost to you) and subscribe to get my new stories by email. To consult about small jobs check my services page here. You can contact me here."
+        }
+      ],
+      "labels": [
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "language",
+          "value": "en"
+        },
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "thumbnail",
+          "value": "https://miro.medium.com/max/768/1*evsFIEVj7qXT1XIkMhnuVg.png"
+        },
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "current_date",
+          "value": "2022-12-26"
+        },
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "title",
+          "value": "Build ChatGPT-like Chatbots With Customized Knowledge for Your Websites, Using Simple Programming",
+          "span_text": "Build ChatGPT-like Chatbots With Customized Knowledge for Your Websites, Using Simple Programming",
+          "span": [
+            0,
+            97
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 0,
+              "end": 97
+            }
+          ]
+        },
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "subheading",
+          "value": "Like ChatGPT but in a form that you can plug into your website and expand with any kind of tailored information by combining basic “old-school” NLP with cutting-edge GPT-3.",
+          "data": {},
+          "span_text": "Like ChatGPT but in a form that you can plug into your website and expand with any kind of tailored information by combining basic “old-school” NLP with cutting-edge GPT-3.",
+          "span": [
+            99,
+            271
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 99,
+              "end": 271
+            }
+          ]
+        },
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "subheading",
+          "value": "Introduction",
+          "data": {
+            "element_id": "8b8b"
+          },
+          "span_text": "Introduction",
+          "span": [
+            273,
+            285
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 273,
+              "end": 285
+            }
+          ]
+        },
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "subheading",
+          "value": "The brain",
+          "data": {
+            "element_id": 1633
+          },
+          "span_text": "The brain",
+          "span": [
+            2302,
+            2311
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 2302,
+              "end": 2311
+            }
+          ]
+        },
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "subheading",
+          "value": "Build custom-informed GPT-3-based chatbots for your website with very simple code",
+          "data": {},
+          "span_text": "Build custom-informed GPT-3-based chatbots for your website with very simple code",
+          "span": [
+            2462,
+            2543
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 2462,
+              "end": 2543
+            }
+          ]
+        },
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "subheading",
+          "value": "Learn about GPT-3, PHP and JavaScript as you build an online GPT-3 based chatbot specialized in a given topic that you…",
+          "data": {},
+          "span_text": "Learn about GPT-3, PHP and JavaScript as you build an online GPT-3 based chatbot specialized in a given topic that you…",
+          "span": [
+            2545,
+            2664
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 2545,
+              "end": 2664
+            }
+          ]
+        },
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "subheading",
+          "value": "Altervista: The Best Free Web Hosting Out There For Me",
+          "data": {},
+          "span_text": "Altervista: The Best Free Web Hosting Out There For Me",
+          "span": [
+            3391,
+            3445
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 3391,
+              "end": 3445
+            }
+          ]
+        },
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "subheading",
+          "value": "Enabling JavaScript and even PHP for free with a super simple coding environment.",
+          "data": {},
+          "span_text": "Enabling JavaScript and even PHP for free with a super simple coding environment.",
+          "span": [
+            3447,
+            3528
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 3447,
+              "end": 3528
+            }
+          ]
+        },
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "subheading",
+          "value": "Extracting customized information",
+          "data": {
+            "element_id": "088f"
+          },
+          "span_text": "Extracting customized information",
+          "span": [
+            4737,
+            4770
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 4737,
+              "end": 4770
+            }
+          ]
+        },
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "code",
+          "value": "block",
+          "data": {},
+          "span_text": "//Define lists of words and symbols to filter out\n\n//Numbers and similar\n\nvar stopwordnumbers = [“once”, “twice”, “thrice”, “first”, “second”, “third”, “fourth”, “fifth”, “sixth”, “seventh”, “nineth”, “tenth”, “1”, “2”, “3”, “4”, “5”, “6”, “7”, “8”, “9”, “0”, “one”, “two”, “three”, “four”, “five”, “six”, “seven”, “eight”, “nine”, “ten”, , “eleven”, “twelve”, “thirteen”, “fourteen”, “fifteen”, “sixteen”, “seventeen”, “eighteen”, “tweenty”, “thirty”, “fourty”, “fifty”, “sixty”, “seventy”, “eighty”, “ninety”, “hundred”, “hundreds”, “and”, “-”, “thousand”, “thousands”, “million”, “millions”, “billion”, “billions” ];\n\n//Symbols\n\nvar stopwordsymbols = [“+”,”-”,”*”,”%”,”/”,”?”,”!”,”^”,”’”,”\\””,”,”,”;”,”\\\\”,”.”]\n\n//Very short words and others, compiled by me from several resources including https://github.com/Yoast/YoastSEO.js/blob/develop/src/config/stopwords.js and https://gist.github.com/sebleier/554280\n\nvar stopwordsmin3=[\"if\", \"or\", \"in\", “a”,”an”,”cool”,”good”,”yep”,”yeah”,”but”,”yes”,”no”,”nop”,”nope”,”sth”,”something”,”anything”,”tell”,”me”,”i”,”want”,”to”,”know”,”asked”,”curious”,”asked”,”ask”,”question”,”answer”,”reply”,”sentence”,”about”,”up”,”yep”,”yeap”,”hi”,”hey”,”will”,”not”,”yes”,”is”,”it”,”he”,”she”,”they”,”them”,”theirs”,”us”,”our”,”we”,”you”,”your”,”yours”,”a”,”ah”,”lol”,”thanks”,”do”,”please”,”pls”,”plis”,”xd”,”wait”,”caca”, “yeah”, “no”, “ok”, “act”,”adj”,”ago”,”ain”,”all”,”and”,”any”,”are”,”a’s”,”ask”,”big”,”but”,”buy”,”can”,”cit”,”co.”,”com”,”con”,”cry”,”c’s”,”did”,”don”,”due”,”edu”,”end”,”est”,”etc”,”far”,”few”,”fix”,”for”,”get”,”gmt”,”got”,”gov”,”had”,”has”,”hed”,”her”,”hes”,”hid”,”him”,”his”,”how”,”htm”,”i’d”,”ill”,”i’m”,”inc”,”int”,”isn”,”itd”,”its”,”ive”,”les”,”let”,”’ll”,”los”,”low”,”ltd”,”man”,”may”,”men”,”mil”,”mrs”,”mug”,”nay”,”net”,”new”,”non”,”nor”,”nos”,”not”,”now”,”off”,”ohh”,”old”,”omg”,”one”,”ord”,”org”,”our”,”out”,”own”,”par”,”pas”,”per”,”put”,”que”,”ran”,”ref”,”run”,”saw”,”say”,”sec”,”see”,”she”,”six”,”sub”,”sup”,”ten”,”the”,”til”,”tip”,”tis”,”too”,”top”,”try”,”t’s”,”two”,”ups”,”use”,”’ve”,”via”,”viz”,”vol”,”was”,”way”,”web”,”wed”,”who”,”why”,”won”,”www”,”yes”,”yet”,”you”,”able”,”abst”,”aint”,”also”,”amid”,”area”,”aren”,”arpa”,”asks”,”auth”,”away”,”back”,”been”,”best”,”bill”,”biol”,”both”,”call”,”came”,”cant”,”case”,”cmon”,”come”,”copy”,”dare”,”date”,”dear”,”didn”,”does”,”done”,”dont”,”down”,”each”,”else”,”ends”,”even”,”ever”,”face”,”fact”,”felt”,”fify”,”fill”,”find”,”fire”,”five”,”four”,”free”,”from”,”full”,”gave”,”gets”,”give”,”goes”,”gone”,”good”,”hadn”,”half”,”hasn”,”have”,”he’d”,”hell”,”help”,”here”,”hers”,”he’s”,”high”,”home”,”html”,”http”,”i.e.”,”ibid”,”i’ll”,”inc.”,”into”,”isnt”,”it’d”,”itll”,”it’s”,”i’ve”,”join”,”just”,”keep”,”kept”,”keys”,”kind”,”knew”,”know”,”last”,”less”,”lest”,”lets”,”like”,”line”,”long”,”look”,”made”,”make”,”many”,”mean”,”mill”,”mine”,”miss”,”more”,”most”,”move”,”msie”,”much”,”must”,”name”,”near”,”need”,”next”,”nine”,”none”,”null”,”okay”,”once”,”ones”,”only”,”onto”,”open”,”ours”,”over”,”page”,”part”,”past”,”plus”,”pmid”,”puts”,”refs”,”ring”,”room”,”said”,”same”,”says”,”seem”,”seen”,”sees”,”self”,”sent”,”shan”,”shed”,”shes”,”show”,”side”,”site”,”some”,”soon”,”stop”,”such”,”sure”,”take”,”tell”,”test”,”text”,”than”,”that”,”them”,”then”,”they”,”thin”,”this”,”thou”,”thru”,”thus”,”till”,”’tis”,”took”,”turn”,”twas”,”unto”,”upon”,”used”,”uses”,”uucp”,”very”,”vols”,”want”,”wasn”,”ways”,”we’d”,”well”,”went”,”were”,”weve”,”what”,”when”,”whim”,”whod”,”whom”,”whos”,”will”,”wish”,”with”,”wont”,”work”,”year”,”youd”,”your”,”zero”,”about”,”above”,”added”,”after”,”again”,”ahead”,”ain’t”,”allow”,”alone”,”along”,”among”,”apart”,”areas”,”arent”,”arise”,”aside”,”asked”,”backs”,”began”,”begin”,”being”,”below”,”brief”,”can’t”,”cases”,”cause”,”clear”,”click”,”c’mon”,”comes”,”could”,”didnt”,”doesn”,”doing”,”don’t”,”downs”,”early”,”eight”,”empty”,”ended”,”et-al”,”every”,”faces”,”facts”,”fewer”,”fifth”,”fifty”,”finds”,”first”,”forth”,”forty”,”found”,”front”,”fully”,”given”,”gives”,”going”,”goods”,”great”,”group”,”hadnt”,”hasnt”,”haven”,”he’ll”,”hello”,”hence”,”heres”,”how’d”,”how’s”,”index”,”inner”,”isn’t”,”it’ll”,”itse””,”keeps”,”known”,”knows”,”large”,”later”,”least”,”let’s”,”liked”,”looks”,”lower”,”makes”,”maybe”,”maynt”,”means”,”might”,”minus”,”mustn”,”needn”,”needs”,”never”,”newer”,”noone”,”noted”,”novel”,”often”,”older”,”one’s”,”opens”,”order”,”other”,”ought”,”owing”,”pages”,”parts”,”place”,”point”,”proud”,”quite”,”right”,”rooms”,”round”,”seems”,”seven”,”shall”,”shant”,”she’d”,”shell”,”she’s”,”shown”,”shows”,”sides”,”since”,”sixty”,”small”,”sorry”,”state”,”still”,”taken”,”tends”,”thank”,”thanx”,”thats”,”their”,”there”,”these”,”theyd”,”thick”,”thing”,”think”,”third”,”those”,”three”,”today”,”tried”,”tries”,”truly”,”turns”,”’twas”,”twice”,”under”,”until”,”using”,”value”,”wants”,”wasnt”,”we’ll”,”wells”,”we’re”,”weren”,”we’ve”,”whats”,”where”,”which”,”while”,”who’d”,”whole”,”wholl”,”who’s”,”whose”,”why’d”,”why’s”,”width”,”won’t”,”words”,”works”,”world”,”would”,”years”,”you’d”,”youll”,”young”,”youre”,”yours”,”youve”,”abroad”,”across”,”allows”,”almost”,”always”,”amidst”,”amount”,”anyhow”,”anyone”,”anyway”,”appear”,”aren’t”,”around”,”asking”,”backed”,”became”,”become”,”before”,”begins”,”behind”,”beings”,”beside”,”better”,”beyond”,”bottom”,”cannot”,”causes”,”couldn”,”course”,”darent”,”detail”,”didn’t”,”differ”,”doesnt”,”downed”,”during”,”effect”,”eighty”,”either”,”eleven”,”ending”,”enough”,”evenly”,”except”,”fairly”,”former”,”giving”,”gotten”,”groups”,”hadn’t”,”hardly”,”hasn’t”,”havent”,”having”,”hereby”,”herein”,”here’s”,”higher”,”himse””,”hither”,”how’ll”,”indeed”,”inside”,”inward”,”itself”,”lately”,”latest”,”latter”,”length”,”likely”,”little”,”longer”,”mainly”,”making”,”mayn’t”,”member”,”merely”,”mightn”,”mostly”,”mustnt”,”myself”,”namely”,”nearly”,”needed”,”neednt”,”neverf”,”newest”,”ninety”,”nobody”,”no-one”,”number”,”obtain”,”oldest”,”opened”,”orders”,”others”,”parted”,”placed”,”places”,”please”,”points”,”poorly”,”rather”,”really”,”recent”,”saying”,”second”,”seeing”,”seemed”,”selves”,”shan’t”,”she’ll”,”should”,”showed”,”showns”,”states”,”system”,”taking”,”thanks”,”thatll”,”that’s”,”thatve”,”theirs”,”thence”,”thered”,”theres”,”they’d”,”theyll”,”theyre”,”theyve”,”thickv”,”things”,”thinks”,”thirty”,”though”,”throug”,”toward”,”trying”,”turned”,”twelve”,”twenty”,”unless”,”unlike”,”useful”,”versus”,”wanted”,”wasn’t”,”well-b”,”werent”,”what’d”,”whatll”,”what’s”,”whatve”,”whence”,”when’d”,”when’s”,”wheres”,”whilst”,”who’ll”,”why’ll”,”widely”,”within”,”wonder”,”worked”,”wouldn”,”you’ll”,”you’re”,”you’ve”,”adopted”,”affects”,”against”,”already”,”amongst”,”another”,”anybody”,”anymore”,”anyways”,”awfully”,”backing”,”because”,”becomes”,”believe”,”besides”,”between”,”billion”,”briefly”,”caption”,”certain”,”changes”,”clearly”,”contain”,”couldnt”,”daren’t”,”despite”,”doesn’t”,”downing”,”exactly”,”example”,”farther”,”fifteen”,”follows”,”forever”,”forward”,”further”,”general”,”getting”,”greater”,”grouped”,”happens”,”haven’t”,”herself”,”highest”,”himself”,”howbeit”,”however”,”hundred”,”ignored”,”insofar”,”instead”,”largely”,”longest”,”looking”,”members”,”mightnt”,”million”,”mustn’t”,”must’ve”,”needing”,”needn’t”,”neither”,”nothing”,”nowhere”,”numbers”,”omitted”,”opening”,”ordered”,”oughtnt”,”outside”,”overall”,”parting”,”perhaps”,”pointed”,”present”,”problem”,”quickly”,”readily”,”regards”,”related”,”results”,”seconds”,”section”,”seeming”,”serious”,”seventy”,”several”,”shouldn”,”showing”,”similar”,”sincere”,”smaller”,”someday”,”somehow”,”someone”,”specify”,”suggest”,”that’ll”,”that’ve”,”thereby”,”there’d”,”therein”,”therell”,”thereof”,”therere”,”there’s”,”thereto”,”thereve”,”they’ll”,”they’re”,”they’ve”,”thoughh”,”thought”,”through”,”towards”,”turning”,”undoing”,”upwards”,”usually”,”various”,”wanting”,”webpage”,”website”,”welcome”,”weren’t”,”what’ll”,”what’ve”,”when’ll”,”whereas”,”whereby”,”where’d”,”wherein”,”where’s”,”whether”,”whither”,”whoever”,”willing”,”without”,”working”,”wouldnt”,”younger”,”actually”,”affected”,”although”,”amoungst”,”announce”,”anything”,”anywhere”,”backward”,”becoming”,”computer”,”consider”,”contains”,”couldn’t”,”could’ve”,”describe”,”directly”,”doubtful”,”entirely”,”evermore”,”everyone”,”followed”,”formerly”,”furthers”,”greatest”,”grouping”,”hereupon”,”homepage”,”inasmuch”,”indicate”,”interest”,”latterly”,”likewise”,”meantime”,”mightn’t”,”might’ve”,”moreover”,”netscape”,”normally”,”obtained”,”opposite”,”ordering”,”oughtn’t”,”pointing”,”possible”,”possibly”,”presents”,”probably”,”problems”,”promptly”,”provided”,”provides”,”recently”,”research”,”reserved”,”resulted”,”secondly”,”sensible”,”shouldnt”,”slightly”,”smallest”,”somebody”,”somethan”,”sometime”,”somewhat”,”strongly”,”there’ll”,”there’re”,”there’ve”,”thorough”,”thoughts”,”thousand”,”together”,”trillion”,”unlikely”,”usefully”,”whatever”,”whenever”,”where’ll”,”wherever”,”whomever”,”wouldn’t”,”would’ve”,”youngest”,”yourself”,”ableabout”,”according”,”affecting”,”alongside”,”available”,”backwards”,”beginning”,”certainly”,”currently”,”described”,”different”,”downwards”,”elsewhere”,”everybody”,”following”,”furthered”,”generally”,”greetings”,”hereafter”,”hopefully”,”immediate”,”important”,”indicated”,”indicates”,”interests”,”invention”,”meanwhile”,”microsoft”,”necessary”,”neverless”,”obviously”,”otherwise”,”ourselves”,”pagecount”,”presented”,”primarily”,”regarding”,”resulting”,”seriously”,”shouldn’t”,”should’ve”,”similarly”,”something”,”sometimes”,”somewhere”,”specified”,”therefore”,”thereupon”,”volumtype”,”whereupon”,”whichever”,”accordance”,”afterwards”,”apparently”,”appreciate”,”associated”,”beforehand”,”beginnings”,”concerning”,”containing”,”definitely”,”especially”,”everything”,”everywhere”,”furthering”,”importance”,”interested”,”particular”,”presenting”,”presumably”,”previously”,”reasonably”,”regardless”,”relatively”,”specifying”,”themselves”,”themselves”,”thereafter”,”thoroughly”,”throughout”,”underneath”,”usefulness”,”whereafter”,”yourselves”,”accordingly”,”appropriate”,”considering”,”differently”,”furthermore”,”immediately”,”information”,”interesting”,”necessarily”,”nonetheless”,”potentially”,”significant”,”consequently”,”nevertheless”,”particularly”,”respectively”,”specifically”,”successfully”,”sufficiently”,”approximately”,”corresponding”,”predominantly”,”significantly”,”substantially”,”unfortunately”,”notwithstanding”]\n\nfunction cleantext(txtin,removenumbers,removesymbols,removewordsmin3, removespaces)\n\n{\n\n//Remove contractions\n\ntxtin = txtin.replace(/\\’m/g,’ am’)\n\ntxtin = txtin.replace(/\\’re/g,’ are’)\n\ntxtin = txtin.replace(/\\blet\\’s\\b/g,’let us’)\n\ntxtin = txtin.replace(/\\’s/g,’ is’)\n\ntxtin = txtin.replace(/ain\\’t/g,’ is not it’)\n\ntxtin = txtin.replace(/n\\’t/g,’ not’)\n\ntxtin = txtin.replace(/\\’ll/g,’ will’)\n\ntxtin = txtin.replace(/\\’d/g,’ would’)\n\ntxtin = txtin.replace(/\\’ve/g,’ have’)\n\ntxtin = txtin.replace(/\\lemme/g,’ let me’)\n\ntxtin = txtin.replace(/\\gimme/g,’ give me’)\n\ntxtin = txtin.replace(/\\wanna/g,’ want to’)\n\ntxtin = txtin.replace(/\\gonna/g,’ going to’)\n\ntxtin = txtin.replace(/r u /g,’are you’)\n\ntxtin = txtin.replace(/\\bim\\b/g,’i am’)\n\ntxtin = txtin.replace(/\\bwhats\\b/g,’what is’)\n\ntxtin = txtin.replace(/\\bwheres\\b/g,’where is’)\n\ntxtin = txtin.replace(/\\bwhos\\b/g,’who is’)\n\n//Remove numbers\n\nif (removenumbers > 0) {\n\nfor (i=0;i<stopwordnumbers.length;i++)\n\n{\n\nvar re = new RegExp(“\\\\b”+stopwordnumbers[i]+”\\\\b”, ‘g’);\n\ntxtin = txtin.replace(re,””)\n\ntxtin = txtin.replace(/[0–9]/g,” “).replace(/ \\. /g,” “)\n\n}\n\n}\n\n//Remove words (very long list!)\n\nif (removewordsmin3 > 0) {\n\nfor (i=0;i<stopwordsmin3.length;i++)\n\n{\n\nvar re = new RegExp(“\\\\b”+stopwordsmin3[i]+”\\\\b”, ‘g’);\n\ntxtin = txtin.replace(re,””)\n\n}\n\n}\n\n//Remove symbols\n\nif (removesymbols > 0) {\n\nfor (i=0;i<stopwordsymbols.length;i++)\n\n{\n\nvar re = new RegExp(“\\\\”+stopwordsymbols[i], ‘g’);\n\ntxtin = txtin.replace(re,””)\n\n}\n\n}\n\n//Remove spaces\n\nif (removespaces > 0) { txtin = txtin.replace(/ /g,” “); txtin = txtin.replace(/ /g,” “); txtin = txtin.replace(/ /g,” “); txtin = txtin.replace(/ /g,” “); txtin = txtin.replace(/ /g,” “); txtin = txtin.replace(/ /g,” “); txtin = txtin.replace(/ /g,” “); txtin = txtin.replace(/ /g,” “); txtin = txtin.replace(/ /g,” “); txtin = txtin.replace(/ /g,” “); txtin = txtin.replace(/ /g,” “); txtin = txtin.replace(/ /g,” “); txtin = txtin.replace(/ /g,” “); txtin = txtin.replace(/ /g,” “); txtin = txtin.replace(/ /g,” “); }\n\nreturn txtin.trim()\n\n}",
+          "span": [
+            5813,
+            18187
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 5813,
+              "end": 18187
+            }
+          ]
+        },
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "subheading",
+          "value": "Continuity",
+          "data": {
+            "element_id": 7763
+          },
+          "span_text": "Continuity",
+          "span": [
+            18969,
+            18979
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 18969,
+              "end": 18979
+            }
+          ]
+        },
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "subheading",
+          "value": "A nice graphical interface",
+          "data": {
+            "element_id": "3f3f"
+          },
+          "span_text": "A nice graphical interface",
+          "span": [
+            19754,
+            19780
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 19754,
+              "end": 19780
+            }
+          ]
+        },
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "code",
+          "value": "block",
+          "data": {},
+          "span_text": "<style>#chatbot { width: 90%; height: 90%; border: 1px solid #ccc; border-radius: 4px; overflow: auto;\n\n/* Add this rule to set the background color to light grey */ background-color: lightgrey; /* OR add this rule to set the background color to light yellow */ background-color: lightyellow;}\n\n#conversation { padding: 10px;}\n\n.message { margin-bottom: 5px; padding: 8px; border-radius: 4px; width: 80%; /* Add this rule */ border: 1px solid darkgrey; margin-left: auto; margin-right: auto;}\n\n.user { background-color: #eee; /* Add this rule */ background-color: lightgreen; /* Add this rule */ margin-left: auto; margin-right: 0;}\n\n.chatbot { background-color: #ddd; /* Add this rule */ background-color: white; /* Add this rule */ margin-left: 0; margin-right: auto;}\n\n#chatbot-form { display: flex; margin-top: 10px; margin-left: 5%; width: 90%; padding: 15px;}\n\n#chatbot-input { flex-grow: 1; padding: 10px; border: 1px solid #ccc; border-radius: 4px;}\n\n#settingsdiv { flex-grow: 1; padding: 5px; border: 1px solid #ccc; border-radius: 3px; margin-left: 5%; margin-right: auto; width: 100%;}\n\n/*#apikey { flex-grow: 1; padding: 5px; border: 1px solid #ccc; border-radius: 3px; margin-left: 5%; margin-right: auto; width: 50%;}*/\n\nbutton[type=”submit”] { margin-left: 10px; padding: 10px; border: none; background-color: #0084ff; color: #fff; cursor: pointer; border-radius: 4px;}</style>",
+          "span": [
+            21089,
+            22481
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 21089,
+              "end": 22481
+            }
+          ]
+        },
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "subheading",
+          "value": "Creating JavaScript functions and web apps with GPT-3’s free code writer",
+          "data": {},
+          "span_text": "Creating JavaScript functions and web apps with GPT-3’s free code writer",
+          "span": [
+            22568,
+            22640
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 22568,
+              "end": 22640
+            }
+          ]
+        },
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "subheading",
+          "value": "Powerful to write up functions, convert between languages, and even draft web apps. All with examples you can run…",
+          "data": {},
+          "span_text": "Powerful to write up functions, convert between languages, and even draft web apps. All with examples you can run…",
+          "span": [
+            22642,
+            22756
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 22642,
+              "end": 22756
+            }
+          ]
+        },
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "subheading",
+          "value": "If you doubt AI will ever be helpful for work, look at how ChatGPT lent me a hand in the most…",
+          "data": {},
+          "span_text": "If you doubt AI will ever be helpful for work, look at how ChatGPT lent me a hand in the most…",
+          "span": [
+            22786,
+            22880
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 22786,
+              "end": 22880
+            }
+          ]
+        },
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "subheading",
+          "value": "Helping me write code and teaching me at the same time, in a real-world application to actual work.",
+          "data": {},
+          "span_text": "Helping me write code and teaching me at the same time, in a real-world application to actual work.",
+          "span": [
+            22882,
+            22981
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 22882,
+              "end": 22981
+            }
+          ]
+        },
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "subheading",
+          "value": "Conclusion + possible evolution and applications of these chatbots",
+          "data": {
+            "element_id": "5d44"
+          },
+          "span_text": "Conclusion + possible evolution and applications of these chatbots",
+          "span": [
+            22994,
+            23060
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 22994,
+              "end": 23060
+            }
+          ]
+        },
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "link",
+          "value": "_blank",
+          "data": {},
+          "span_text": "get an API key from OpenAI here",
+          "span": [
+            24556,
+            24587
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 24556,
+              "end": 24587
+            }
+          ]
+        },
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "subheading",
+          "value": "Further reads",
+          "data": {
+            "element_id": 3340
+          },
+          "span_text": "Further reads",
+          "span": [
+            24615,
+            24628
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 24615,
+              "end": 24628
+            }
+          ]
+        },
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "subheading",
+          "value": "All my articles on GPT-3 as of October 2022",
+          "data": {},
+          "span_text": "All my articles on GPT-3 as of October 2022",
+          "span": [
+            24668,
+            24711
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 24668,
+              "end": 24711
+            }
+          ]
+        },
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "subheading",
+          "value": "My favorite language model and how to use it for multiple purposes in online applications with pure JavaScript and…",
+          "data": {},
+          "span_text": "My favorite language model and how to use it for multiple purposes in online applications with pure JavaScript and…",
+          "span": [
+            24713,
+            24828
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 24713,
+              "end": 24828
+            }
+          ]
+        },
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "link",
+          "value": "_blank",
+          "data": {},
+          "span_text": "www.lucianoabriata.com",
+          "span": [
+            24967,
+            24989
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 24967,
+              "end": 24989
+            }
+          ]
+        },
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "link",
+          "value": "https://lucianosphere.medium.com/membership",
+          "data": {},
+          "span_text": "Become a Medium member",
+          "span": [
+            25120,
+            25142
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 25120,
+              "end": 25142
+            }
+          ]
+        },
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "link",
+          "value": "https://lucianosphere.medium.com/subscribe",
+          "data": {},
+          "span_text": "subscribe to get my new stories",
+          "span": [
+            25258,
+            25289
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 25258,
+              "end": 25289
+            }
+          ]
+        },
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "link",
+          "value": "_blank",
+          "data": {},
+          "span_text": "services page here",
+          "span": [
+            25337,
+            25355
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 25337,
+              "end": 25355
+            }
+          ]
+        },
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "link",
+          "value": "_blank",
+          "data": {},
+          "span_text": "contact me here",
+          "span": [
+            25365,
+            25380
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 25365,
+              "end": 25380
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text_generated_by_step_name": "summarize",
+      "text_generated_by_step_id": 2,
+      "contents": [
+        {
+          "utterance": "ChatGPT is a revolutionary artificial intelligence technology that allows users to have natural conversations with a very smart chatbot. In this article, I will show you how to create a good-looking chatbot powered by GPT-3, using HTML, CSS, and JavaScript on the client and PHP on the server."
+        }
+      ],
+      "labels": []
+    }
+  ],
+  "stats": {
+    "concurrency_wait_time": 0,
+    "total_running_jobs": 1,
+    "total_waiting_jobs": 0
+  }
+}

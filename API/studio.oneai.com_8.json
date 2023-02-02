@@ -1,0 +1,2451 @@
+{
+  "input": [
+    {
+      "utterance": "AI and the HyperEncabulator\nTechnology\n\nDave Jilk and I had a long discussion last night, which included some rambling about AI. If you have been following me for a while, you know that in 2010 I stated that the machines have already taken over for us and are patiently waiting for us to feed all human knowledge into them.\n\nThis morning, Dave told me about the new HyperEncabulator project by SANS ICS as part of their ICS initiative. If you aren’t aware of the ICS initiative, it’s essential for industrial applications, especially IoT and security.\n\nBut first, some history, since it’s an evolution of, and inspired by, the Retro Encabulator initiative, which was foundational but little known in the arc of encabultors.\n\nThe HyperEncabulator came out in the middle of 2022. Notably, side fumbling is still effectively prevented.\n\nWhen I asked ChatGPT, “How does a Retro Encabulator work?” they had an accurate but humorless response.\n\nThe Retro Encabulator is a fictional machine invented for an engineering-themed comedy sketch in the 1970s. It is described as “an intricate and implausible device for the purpose of regaining lost energy.” The Retro Encabulator is a humorous parody of an electromechanical machine and its purpose is to perform useless tasks. The machine consists of numerous components, such as pistons, flywheels, and other components, that serve no real purpose. The device usually ends up producing more energy than it consumes, although this is never explained.\n\nGrammarly had a few suggestions to improve ChatGPT’s writing.\n\nThe Retro Encabulator is the fictional machine invented for an engineering-themed comedy sketch in the 1970s. It is described as “an intricate and implausible device to regain lost energy.” The Retro Encabulator is a humorous parody of an electromechanical machine whose purpose is to perform useless tasks. The machine consists of numerous components, such as pistons, flywheels, and other components, that serve no real purpose. The device usually produces more energy than it consumes, although this is never explained.\n\nWhen I asked ChatGPT, “Are you aware how little a sense of humor you have?” they said, “No, I do not have self-awareness.” So I hope they figure out how to connect to the HyperEncabulator.\n\nFYI – when I asked ChatGPT, “What are your pronouns” so I could write the previous paragraph correctly, they said, “My pronouns are they/them.”"
+    }
+  ],
+  "status": "success",
+  "output": [
+    {
+      "text_generated_by_step_name": "html-extract-article",
+      "text_generated_by_step_id": 1,
+      "contents": [
+        {
+          "utterance": "AI and the HyperEncabulator\nTechnology\n\nDave Jilk and I had a long discussion last night, which included some rambling about AI. If you have been following me for a while, you know that in 2010 I stated that the machines have already taken over for us and are patiently waiting for us to feed all human knowledge into them.\n\nThis morning, Dave told me about the new HyperEncabulator project by SANS ICS as part of their ICS initiative. If you aren’t aware of the ICS initiative, it’s essential for industrial applications, especially IoT and security.\n\nBut first, some history, since it’s an evolution of, and inspired by, the Retro Encabulator initiative, which was foundational but little known in the arc of encabultors.\n\nThe HyperEncabulator came out in the middle of 2022. Notably, side fumbling is still effectively prevented.\n\nWhen I asked ChatGPT, “How does a Retro Encabulator work?” they had an accurate but humorless response.\n\nThe Retro Encabulator is a fictional machine invented for an engineering-themed comedy sketch in the 1970s. It is described as “an intricate and implausible device for the purpose of regaining lost energy.” The Retro Encabulator is a humorous parody of an electromechanical machine and its purpose is to perform useless tasks. The machine consists of numerous components, such as pistons, flywheels, and other components, that serve no real purpose. The device usually ends up producing more energy than it consumes, although this is never explained.\n\nGrammarly had a few suggestions to improve ChatGPT’s writing.\n\nThe Retro Encabulator is the fictional machine invented for an engineering-themed comedy sketch in the 1970s. It is described as “an intricate and implausible device to regain lost energy.” The Retro Encabulator is a humorous parody of an electromechanical machine whose purpose is to perform useless tasks. The machine consists of numerous components, such as pistons, flywheels, and other components, that serve no real purpose. The device usually produces more energy than it consumes, although this is never explained.\n\nWhen I asked ChatGPT, “Are you aware how little a sense of humor you have?” they said, “No, I do not have self-awareness.” So I hope they figure out how to connect to the HyperEncabulator.\n\nFYI – when I asked ChatGPT, “What are your pronouns” so I could write the previous paragraph correctly, they said, “My pronouns are they/them.”"
+        }
+      ],
+      "labels": [
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "language",
+          "value": "en-US"
+        },
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "current_date",
+          "value": "2023-01-29"
+        },
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "title",
+          "value": "AI and the HyperEncabulator",
+          "span_text": "AI and the HyperEncabulator",
+          "span": [
+            0,
+            27
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 0,
+              "end": 27
+            }
+          ]
+        },
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "link",
+          "value": "/archives/category/technology",
+          "data": {},
+          "span_text": "Technology",
+          "span": [
+            28,
+            38
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 28,
+              "end": 38
+            }
+          ]
+        },
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "link",
+          "value": "/archives/category/technology",
+          "data": {},
+          "span_text": "Technology",
+          "span": [
+            28,
+            38
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 28,
+              "end": 38
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text_generated_by_step_name": "summarize",
+      "text_generated_by_step_id": 2,
+      "contents": [
+        {
+          "utterance": "The Retro Encabulator is a fictional machine invented for an engineering-themed comedy sketch in the 1970s. It is a humorous parody of an electromechanical machine whose purpose is to perform useless tasks. The HyperEncabulator came out in the middle of 2022."
+        }
+      ],
+      "labels": [
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " Retro",
+          "span": [
+            3,
+            9
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 3,
+              "end": 9
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 629,
+              "end": 635
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " Retro",
+          "span": [
+            3,
+            9
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 3,
+              "end": 9
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 731,
+              "end": 737
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " Enc",
+          "span": [
+            9,
+            13
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 9,
+              "end": 13
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 877,
+              "end": 881
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": "ulator",
+          "span": [
+            15,
+            21
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 15,
+              "end": 21
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 647,
+              "end": 658
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": "ulator",
+          "span": [
+            15,
+            21
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 15,
+              "end": 21
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 748,
+              "end": 753
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " a",
+          "span": [
+            24,
+            26
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 24,
+              "end": 26
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1780,
+              "end": 1789
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " fictional",
+          "span": [
+            26,
+            36
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 26,
+              "end": 36
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 970,
+              "end": 980
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " fictional",
+          "span": [
+            26,
+            36
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 26,
+              "end": 36
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 980,
+              "end": 988
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " fictional",
+          "span": [
+            26,
+            36
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 26,
+              "end": 36
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1590,
+              "end": 1600
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " fictional",
+          "span": [
+            26,
+            36
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 26,
+              "end": 36
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1601,
+              "end": 1608
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " machine",
+          "span": [
+            36,
+            44
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 36,
+              "end": 44
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 980,
+              "end": 988
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " machine",
+          "span": [
+            36,
+            44
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 36,
+              "end": 44
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 988,
+              "end": 997
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " invented",
+          "span": [
+            44,
+            53
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 44,
+              "end": 53
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 988,
+              "end": 997
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " invented",
+          "span": [
+            44,
+            53
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 44,
+              "end": 53
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 997,
+              "end": 1001
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " invented",
+          "span": [
+            44,
+            53
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 44,
+              "end": 53
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1608,
+              "end": 1617
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " for",
+          "span": [
+            53,
+            57
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 53,
+              "end": 57
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1004,
+              "end": 1016
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " an",
+          "span": [
+            57,
+            60
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 57,
+              "end": 60
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1001,
+              "end": 1004
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " an",
+          "span": [
+            57,
+            60
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 57,
+              "end": 60
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1004,
+              "end": 1016
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " engineering",
+          "span": [
+            60,
+            72
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 60,
+              "end": 72
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1004,
+              "end": 1016
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " engineering",
+          "span": [
+            60,
+            72
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 60,
+              "end": 72
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1016,
+              "end": 1017
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " engineering",
+          "span": [
+            60,
+            72
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 60,
+              "end": 72
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1624,
+              "end": 1636
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": "-",
+          "span": [
+            72,
+            73
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 72,
+              "end": 73
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1016,
+              "end": 1017
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": "-",
+          "span": [
+            72,
+            73
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 72,
+              "end": 73
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1017,
+              "end": 1023
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": "themed",
+          "span": [
+            73,
+            79
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 73,
+              "end": 79
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1017,
+              "end": 1023
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": "themed",
+          "span": [
+            73,
+            79
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 73,
+              "end": 79
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1023,
+              "end": 1030
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": "themed",
+          "span": [
+            73,
+            79
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 73,
+              "end": 79
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1637,
+              "end": 1643
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " comedy",
+          "span": [
+            79,
+            86
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 79,
+              "end": 86
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1023,
+              "end": 1030
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " comedy",
+          "span": [
+            79,
+            86
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 79,
+              "end": 86
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1030,
+              "end": 1037
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " comedy",
+          "span": [
+            79,
+            86
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 79,
+              "end": 86
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1643,
+              "end": 1650
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " sketch",
+          "span": [
+            86,
+            93
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 86,
+              "end": 93
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1030,
+              "end": 1037
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " sketch",
+          "span": [
+            86,
+            93
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 86,
+              "end": 93
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1650,
+              "end": 1657
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " in",
+          "span": [
+            93,
+            96
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 93,
+              "end": 96
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1044,
+              "end": 1049
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " the",
+          "span": [
+            96,
+            100
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 96,
+              "end": 100
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1044,
+              "end": 1049
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " 1970",
+          "span": [
+            100,
+            105
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 100,
+              "end": 105
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1044,
+              "end": 1049
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " 1970",
+          "span": [
+            100,
+            105
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 100,
+              "end": 105
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1664,
+              "end": 1669
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " a",
+          "span": [
+            113,
+            115
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 113,
+              "end": 115
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1179,
+              "end": 1188
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " humorous",
+          "span": [
+            115,
+            124
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 115,
+              "end": 124
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1179,
+              "end": 1188
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " humorous",
+          "span": [
+            115,
+            124
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 115,
+              "end": 124
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1189,
+              "end": 1195
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " humorous",
+          "span": [
+            115,
+            124
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 115,
+              "end": 124
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1780,
+              "end": 1789
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " parody",
+          "span": [
+            124,
+            131
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 124,
+              "end": 131
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1189,
+              "end": 1195
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " parody",
+          "span": [
+            124,
+            131
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 124,
+              "end": 131
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1195,
+              "end": 1198
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " of",
+          "span": [
+            131,
+            134
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 131,
+              "end": 134
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1195,
+              "end": 1198
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " of",
+          "span": [
+            131,
+            134
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 131,
+              "end": 134
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1198,
+              "end": 1201
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " an",
+          "span": [
+            134,
+            137
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 134,
+              "end": 137
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1198,
+              "end": 1201
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " an",
+          "span": [
+            134,
+            137
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 134,
+              "end": 137
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1201,
+              "end": 1210
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " electrom",
+          "span": [
+            137,
+            146
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 137,
+              "end": 146
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1201,
+              "end": 1210
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " electrom",
+          "span": [
+            137,
+            146
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 137,
+              "end": 146
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1210,
+              "end": 1213
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": "ech",
+          "span": [
+            146,
+            149
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 146,
+              "end": 149
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1210,
+              "end": 1213
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": "ech",
+          "span": [
+            146,
+            149
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 146,
+              "end": 149
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1213,
+              "end": 1219
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": "anical",
+          "span": [
+            149,
+            155
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 149,
+              "end": 155
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1213,
+              "end": 1219
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": "anical",
+          "span": [
+            149,
+            155
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 149,
+              "end": 155
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1219,
+              "end": 1227
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " machine",
+          "span": [
+            155,
+            163
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 155,
+              "end": 163
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1219,
+              "end": 1227
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " machine",
+          "span": [
+            155,
+            163
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 155,
+              "end": 163
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1828,
+              "end": 1834
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " whose",
+          "span": [
+            163,
+            169
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 163,
+              "end": 169
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1235,
+              "end": 1243
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " whose",
+          "span": [
+            163,
+            169
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 163,
+              "end": 169
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1828,
+              "end": 1834
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " whose",
+          "span": [
+            163,
+            169
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 163,
+              "end": 169
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1834,
+              "end": 1842
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " purpose",
+          "span": [
+            169,
+            177
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 169,
+              "end": 177
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1235,
+              "end": 1243
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " purpose",
+          "span": [
+            169,
+            177
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 169,
+              "end": 177
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1834,
+              "end": 1842
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " purpose",
+          "span": [
+            169,
+            177
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 169,
+              "end": 177
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1842,
+              "end": 1845
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " is",
+          "span": [
+            177,
+            180
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 177,
+              "end": 180
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1842,
+              "end": 1845
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " is",
+          "span": [
+            177,
+            180
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 177,
+              "end": 180
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1845,
+              "end": 1848
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " to",
+          "span": [
+            180,
+            183
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 180,
+              "end": 183
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1246,
+              "end": 1249
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " to",
+          "span": [
+            180,
+            183
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 180,
+              "end": 183
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1249,
+              "end": 1257
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " to",
+          "span": [
+            180,
+            183
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 180,
+              "end": 183
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1845,
+              "end": 1848
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " to",
+          "span": [
+            180,
+            183
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 180,
+              "end": 183
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1848,
+              "end": 1856
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " perform",
+          "span": [
+            183,
+            191
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 183,
+              "end": 191
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1249,
+              "end": 1257
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " perform",
+          "span": [
+            183,
+            191
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 183,
+              "end": 191
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1257,
+              "end": 1265
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " perform",
+          "span": [
+            183,
+            191
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 183,
+              "end": 191
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1848,
+              "end": 1856
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " useless",
+          "span": [
+            191,
+            199
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 191,
+              "end": 199
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1257,
+              "end": 1265
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " useless",
+          "span": [
+            191,
+            199
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 191,
+              "end": 199
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1266,
+              "end": 1271
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " useless",
+          "span": [
+            191,
+            199
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 191,
+              "end": 199
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1856,
+              "end": 1864
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " useless",
+          "span": [
+            191,
+            199
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 191,
+              "end": 199
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1864,
+              "end": 1870
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " tasks",
+          "span": [
+            199,
+            205
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 199,
+              "end": 205
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1266,
+              "end": 1271
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " tasks",
+          "span": [
+            199,
+            205
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 199,
+              "end": 205
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 1864,
+              "end": 1870
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " The",
+          "span": [
+            206,
+            210
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 206,
+              "end": 210
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 731,
+              "end": 737
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " Hyper",
+          "span": [
+            210,
+            216
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 210,
+              "end": 216
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 731,
+              "end": 737
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " Hyper",
+          "span": [
+            210,
+            216
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 210,
+              "end": 216
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 737,
+              "end": 740
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": "Enc",
+          "span": [
+            216,
+            219
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 216,
+              "end": 219
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 371,
+              "end": 374
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": "Enc",
+          "span": [
+            216,
+            219
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 216,
+              "end": 219
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 374,
+              "end": 376
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": "Enc",
+          "span": [
+            216,
+            219
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 216,
+              "end": 219
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 737,
+              "end": 740
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": "Enc",
+          "span": [
+            216,
+            219
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 216,
+              "end": 219
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 740,
+              "end": 742
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": "ab",
+          "span": [
+            219,
+            221
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 219,
+              "end": 221
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 742,
+              "end": 748
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": "ulator",
+          "span": [
+            221,
+            227
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 221,
+              "end": 227
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 376,
+              "end": 382
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": "ulator",
+          "span": [
+            221,
+            227
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 221,
+              "end": 227
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 748,
+              "end": 753
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " came",
+          "span": [
+            227,
+            232
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 227,
+              "end": 232
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 748,
+              "end": 753
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " came",
+          "span": [
+            227,
+            232
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 227,
+              "end": 232
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 753,
+              "end": 757
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " out",
+          "span": [
+            232,
+            236
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 232,
+              "end": 236
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 753,
+              "end": 757
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " out",
+          "span": [
+            232,
+            236
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 232,
+              "end": 236
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 758,
+              "end": 760
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " out",
+          "span": [
+            232,
+            236
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 232,
+              "end": 236
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 764,
+              "end": 771
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " out",
+          "span": [
+            232,
+            236
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 232,
+              "end": 236
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 774,
+              "end": 779
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " in",
+          "span": [
+            236,
+            239
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 236,
+              "end": 239
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 764,
+              "end": 771
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " in",
+          "span": [
+            236,
+            239
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 236,
+              "end": 239
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 774,
+              "end": 779
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " the",
+          "span": [
+            239,
+            243
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 239,
+              "end": 243
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 760,
+              "end": 764
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " the",
+          "span": [
+            239,
+            243
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 239,
+              "end": 243
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 764,
+              "end": 771
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " the",
+          "span": [
+            239,
+            243
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 239,
+              "end": 243
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 774,
+              "end": 779
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " middle",
+          "span": [
+            243,
+            250
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 243,
+              "end": 250
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 764,
+              "end": 771
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " middle",
+          "span": [
+            243,
+            250
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 243,
+              "end": 250
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 772,
+              "end": 774
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " middle",
+          "span": [
+            243,
+            250
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 243,
+              "end": 250
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 774,
+              "end": 779
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " of",
+          "span": [
+            250,
+            253
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 250,
+              "end": 253
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 764,
+              "end": 771
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " of",
+          "span": [
+            250,
+            253
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 250,
+              "end": 253
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 772,
+              "end": 774
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " of",
+          "span": [
+            250,
+            253
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 250,
+              "end": 253
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 774,
+              "end": 779
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " 2022",
+          "span": [
+            253,
+            258
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 253,
+              "end": 258
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 774,
+              "end": 779
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "stats": {
+    "concurrency_wait_time": 0,
+    "total_running_jobs": 1,
+    "total_waiting_jobs": 0
+  }
+}

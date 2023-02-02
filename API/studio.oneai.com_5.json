@@ -1,0 +1,395 @@
+{
+  "input": [
+    {
+      "utterance": "Replacing workers with AI? Don’t forget the retraining fees • The Register\n\nSo you want to replace workers with AI? Watch out for retraining fees, they're a killer\n\nWho said workforce development was just for humans?\n\nComment The lucid ramblings and art synthesized by ChatGPT or Stable Diffusion have captured imaginations and prompted no shortage of controversy over the role generative AI will play in our futures.\n\nAs we've seen with CNET and Buzzfeed, executives are no less dazzled by AI's creative potential to replace workers with profits. But one of things that's often missed in these conversations is the need to retrain these models regularly or risk them aging into irrelevance, particularly in rapidly evolving environments like the news.\n\nChatGPT, Stable Diffusion, Dall-E-2 and the majority of generative AI today are trained on large datasets and then made available as proof of concepts or exported as a pre-trained model.\n\nLet's take Stable Diffusion as an example as it offers a glimpse at just how misleading the scope these models can be. Like Dall-E-2 Stable Diffusion is multi-modal. It's made up of a collection of models that work together to turn your works into a visual representation.\n\nBut where Stable Diffusion stands out is that its pre-trained model can fit into just 4GB of Nvidia vRAM without sending the CPU into overdrive trying to churn data. This means you can run it at home on a decently powerful laptop or desktop so long as you've got a dedicated GPU with enough memory. The ability to run models at home has opened the eyes of many of the potential for generative AI, but while fun, pre-trained models also have a finite shelf life.\n\nImagine if you exposed a child to everything the world has to offer. For 18 years they absorb all the knowledge they can, but on the first day of their adult life they're locked away in a cave and isolated from the world. Now imagine you provided that person with art supplies and asked them to draw, paint, and render images based on your prompts.\n\nAt first the images would be relatively accurate, but with each passing day isolation puts them at a greater disadvantage. As the prompts increasingly venture into unfamiliar territory, the art steadily becomes less accurate.\n\nA pre-trained AI model isn't much different. It's blind to the world from the point its training is complete. This is why for generative AI to be truly useful it's going to need to be retrained repeatedly. And herein lies the problem: while these AI models all seem magical, training them even once remains an exceptionally expensive proposition.\n\nThis makes private school look like a bargain\n\nCalculating the cost of training is a tricky thing because there are so many variables at play. But for the purposes of this piece, we're going to take a look at floating point accuracy, model size, and training time to help put it all in perspective.\n\nMost AI training today is done on GPUs each with a relatively small amount of fast memory onboard. Nvidia's A100 and H100 GPUs both sport 80GB of HBM memory, while AMD and Intel's GPUs are now pushing 128GB. While there are other architectures out there with different memory topologies, we're going to stick to Nvidia's A100 because the hardware is well supported, widely available in both on-prem and cloud environments and has been running AI workloads for years at this point.\n\nFloating point accuracy is one of the biggest factors, as it plays both into training time and how much memory the model will need. The latter also dictates how much compute is required, as each accelerator only has so much memory. Training time itself is harder to quantify because it'll vary depending on compute density, the quantity of accelerators, the size of the dataset, the number of parameters at play and any number of other related variables.\n\nMost models today are trained using FP32, FP16, or Bfloat16, though many industry players are now pushing FP8 calculations. As you drop down the scale, accuracy is traded for greater performance and the models tend to get smaller too. For this reason, it's not uncommon for models to use mixed precision, which essentially involves using lower accuracy calculations for some parameters and higher accuracy for others, usually to optimize performance.\n\nSo just how big are these models? Well, with ChatGPT generating no shortage of controversy as of late, let's take a look at GPT-3 on which the divisive AI model is based. At 175 billion parameters GPT-3, unveiled in mid 2020, was trained on a massive cluster of Nvidia V100 GPUs on a dataset of roughly 2TBs.\n\nFrom what we understand, GPT-3 was trained using FP32 precision, which means four bytes per parameter. That works out to about 700GB of vRAM required just to fit the model. Today, that'd require about ten 80GB Nvidia A100s, but unless you want to wait years for it to train, you're gonna want a few more chunks of big iron.\n\nEngineers at Nvidia, working alongside scientists at Stanford University and Microsoft Research, estimated in a 2021 paper that it'd take 1,024 A100s 34 days to train GPT-3 on a 1.2TB dataset. To put that in perspective, that's the equivalent to 128 AWS p4de.24xlarge instances. At $40.96 per hour apiece, and with 816 hours required to train, that'd run you in the neighborhood of $4.28 million just to train it. Running inferencing on the trained model to ensure smarter performance is another issue entirely.\n\nAI cannot be credited as authors in papers, top academic journals rule\nSoftware glitch revokes copyright protection for AI-generated comic book\nMicrosoft can't stop itself blowing billions on OpenAI\nUniversities offered software to sniff out ChatGPT-written essays\n\nAnd that's just GPT-3. Future models are expected to be an order of magnitude larger, with some speculating that GPT-4 could be as large as a trillion parameters in size. But, since we don't have any firm details on GPT-4 just yet, we'll look at another large language model from Nvidia.\n\nBehold the Megatron\n\nNvidia's Megatron-Turing NLG language model has 530 billion parameters, making it more than three-times larger than GPT-3. According to Nvidia, it took 2,048 Nvidia A100s running in mixed precision eight weeks to train the model. Going back to our AWS example, now we're talking about just over $14 million to train it once. It doesn't take much of an imagination to see why retraining every week on an incrementally larger dataset could get expensive in a hurry.\n\nYou might ask why not train on prem if the cloud is so expensive. This is a valid point, especially if you're going to be retraining your model constantly, but it still requires a big upfront investment.\n\nUsing Nvidia's Megatron-Turning NLG example from before, you'd need 256 8-GPU nodes. We'll use Nvidia's DGX A100 servers as an example. While the cost of these systems varies, we've seen pricing in the neighborhood of $175,000.\n\nFor 256 nodes the costs work out to $44.8 million and that doesn't consider the power and maintenance required to keep them up and running. Under full load, a 256 node cluster could chew through 1.7 megawatts. Assuming constant retraining, you're looking at $2.2 million a year in power. Of course, in reality it should be a fair bit less than that.\n\nProliferation of faster accelerators and lower/mix precision calculations will certainly help, but that's assuming the models don't continue to outpace our advances in silicon.\n\nThe point of diminishing returns\n\nIf we've learned anything about human nature, it's that we'll take whatever shortcuts we can if it means turning a buck. Massive natural language models like ChatGPT may be impressive, but the sheer cost to train and then retrain them will make them so impractical that only the largest companies can afford to use them to their full potential.\n\nBusinesses like Microsoft, which operate massive GPU clusters with tens of thousands of accelerators, are well positioned to do just that, so it's no surprise the company is making massive investments in companies like OpenAI.\n\nBut as AI models and accelerators mature, the number of models tailored to specific applications are likely to proliferate.\n\nWe've already seen a slew of AI art generators emerge in the wake of Dall-E. But despite failing to deliver the same degree of polish as its rivals, Stable Diffusion's open source nature and ability to not only be deployed, but trained on consumer hardware, have made it a standout hit.\n\nStable Diffusion also demonstrates that AI isn't immune to the rule of diminishing returns. Luxury cars may captivate drivers, but if they can't afford them, they make do with their Ford or Honda. While it may lack the style or prestige of a luxury brand, it'll still get you to point A to B. There's no reason to think the same won't be true of AI adoption in the enterprise.\n\nUltimately, the goal isn't perfection, it's mediocrity. As long as the model is good enough - and costs less than having a person do it - the AI will have paid for itself. And as we've discussed, there are plenty of corners to cut. ®"
+    }
+  ],
+  "status": "success",
+  "output": [
+    {
+      "text_generated_by_step_name": "html-extract-article",
+      "text_generated_by_step_id": 1,
+      "contents": [
+        {
+          "utterance": "Replacing workers with AI? Don’t forget the retraining fees • The Register\n\nSo you want to replace workers with AI? Watch out for retraining fees, they're a killer\n\nWho said workforce development was just for humans?\n\nComment The lucid ramblings and art synthesized by ChatGPT or Stable Diffusion have captured imaginations and prompted no shortage of controversy over the role generative AI will play in our futures.\n\nAs we've seen with CNET and Buzzfeed, executives are no less dazzled by AI's creative potential to replace workers with profits. But one of things that's often missed in these conversations is the need to retrain these models regularly or risk them aging into irrelevance, particularly in rapidly evolving environments like the news.\n\nChatGPT, Stable Diffusion, Dall-E-2 and the majority of generative AI today are trained on large datasets and then made available as proof of concepts or exported as a pre-trained model.\n\nLet's take Stable Diffusion as an example as it offers a glimpse at just how misleading the scope these models can be. Like Dall-E-2 Stable Diffusion is multi-modal. It's made up of a collection of models that work together to turn your works into a visual representation.\n\nBut where Stable Diffusion stands out is that its pre-trained model can fit into just 4GB of Nvidia vRAM without sending the CPU into overdrive trying to churn data. This means you can run it at home on a decently powerful laptop or desktop so long as you've got a dedicated GPU with enough memory. The ability to run models at home has opened the eyes of many of the potential for generative AI, but while fun, pre-trained models also have a finite shelf life.\n\nImagine if you exposed a child to everything the world has to offer. For 18 years they absorb all the knowledge they can, but on the first day of their adult life they're locked away in a cave and isolated from the world. Now imagine you provided that person with art supplies and asked them to draw, paint, and render images based on your prompts.\n\nAt first the images would be relatively accurate, but with each passing day isolation puts them at a greater disadvantage. As the prompts increasingly venture into unfamiliar territory, the art steadily becomes less accurate.\n\nA pre-trained AI model isn't much different. It's blind to the world from the point its training is complete. This is why for generative AI to be truly useful it's going to need to be retrained repeatedly. And herein lies the problem: while these AI models all seem magical, training them even once remains an exceptionally expensive proposition.\n\nThis makes private school look like a bargain\n\nCalculating the cost of training is a tricky thing because there are so many variables at play. But for the purposes of this piece, we're going to take a look at floating point accuracy, model size, and training time to help put it all in perspective.\n\nMost AI training today is done on GPUs each with a relatively small amount of fast memory onboard. Nvidia's A100 and H100 GPUs both sport 80GB of HBM memory, while AMD and Intel's GPUs are now pushing 128GB. While there are other architectures out there with different memory topologies, we're going to stick to Nvidia's A100 because the hardware is well supported, widely available in both on-prem and cloud environments and has been running AI workloads for years at this point.\n\nFloating point accuracy is one of the biggest factors, as it plays both into training time and how much memory the model will need. The latter also dictates how much compute is required, as each accelerator only has so much memory. Training time itself is harder to quantify because it'll vary depending on compute density, the quantity of accelerators, the size of the dataset, the number of parameters at play and any number of other related variables.\n\nMost models today are trained using FP32, FP16, or Bfloat16, though many industry players are now pushing FP8 calculations. As you drop down the scale, accuracy is traded for greater performance and the models tend to get smaller too. For this reason, it's not uncommon for models to use mixed precision, which essentially involves using lower accuracy calculations for some parameters and higher accuracy for others, usually to optimize performance.\n\nSo just how big are these models? Well, with ChatGPT generating no shortage of controversy as of late, let's take a look at GPT-3 on which the divisive AI model is based. At 175 billion parameters GPT-3, unveiled in mid 2020, was trained on a massive cluster of Nvidia V100 GPUs on a dataset of roughly 2TBs.\n\nFrom what we understand, GPT-3 was trained using FP32 precision, which means four bytes per parameter. That works out to about 700GB of vRAM required just to fit the model. Today, that'd require about ten 80GB Nvidia A100s, but unless you want to wait years for it to train, you're gonna want a few more chunks of big iron.\n\nEngineers at Nvidia, working alongside scientists at Stanford University and Microsoft Research, estimated in a 2021 paper that it'd take 1,024 A100s 34 days to train GPT-3 on a 1.2TB dataset. To put that in perspective, that's the equivalent to 128 AWS p4de.24xlarge instances. At $40.96 per hour apiece, and with 816 hours required to train, that'd run you in the neighborhood of $4.28 million just to train it. Running inferencing on the trained model to ensure smarter performance is another issue entirely.\n\nAI cannot be credited as authors in papers, top academic journals rule\nSoftware glitch revokes copyright protection for AI-generated comic book\nMicrosoft can't stop itself blowing billions on OpenAI\nUniversities offered software to sniff out ChatGPT-written essays\n\nAnd that's just GPT-3. Future models are expected to be an order of magnitude larger, with some speculating that GPT-4 could be as large as a trillion parameters in size. But, since we don't have any firm details on GPT-4 just yet, we'll look at another large language model from Nvidia.\n\nBehold the Megatron\n\nNvidia's Megatron-Turing NLG language model has 530 billion parameters, making it more than three-times larger than GPT-3. According to Nvidia, it took 2,048 Nvidia A100s running in mixed precision eight weeks to train the model. Going back to our AWS example, now we're talking about just over $14 million to train it once. It doesn't take much of an imagination to see why retraining every week on an incrementally larger dataset could get expensive in a hurry.\n\nYou might ask why not train on prem if the cloud is so expensive. This is a valid point, especially if you're going to be retraining your model constantly, but it still requires a big upfront investment.\n\nUsing Nvidia's Megatron-Turning NLG example from before, you'd need 256 8-GPU nodes. We'll use Nvidia's DGX A100 servers as an example. While the cost of these systems varies, we've seen pricing in the neighborhood of $175,000.\n\nFor 256 nodes the costs work out to $44.8 million and that doesn't consider the power and maintenance required to keep them up and running. Under full load, a 256 node cluster could chew through 1.7 megawatts. Assuming constant retraining, you're looking at $2.2 million a year in power. Of course, in reality it should be a fair bit less than that.\n\nProliferation of faster accelerators and lower/mix precision calculations will certainly help, but that's assuming the models don't continue to outpace our advances in silicon.\n\nThe point of diminishing returns\n\nIf we've learned anything about human nature, it's that we'll take whatever shortcuts we can if it means turning a buck. Massive natural language models like ChatGPT may be impressive, but the sheer cost to train and then retrain them will make them so impractical that only the largest companies can afford to use them to their full potential.\n\nBusinesses like Microsoft, which operate massive GPU clusters with tens of thousands of accelerators, are well positioned to do just that, so it's no surprise the company is making massive investments in companies like OpenAI.\n\nBut as AI models and accelerators mature, the number of models tailored to specific applications are likely to proliferate.\n\nWe've already seen a slew of AI art generators emerge in the wake of Dall-E. But despite failing to deliver the same degree of polish as its rivals, Stable Diffusion's open source nature and ability to not only be deployed, but trained on consumer hardware, have made it a standout hit.\n\nStable Diffusion also demonstrates that AI isn't immune to the rule of diminishing returns. Luxury cars may captivate drivers, but if they can't afford them, they make do with their Ford or Honda. While it may lack the style or prestige of a luxury brand, it'll still get you to point A to B. There's no reason to think the same won't be true of AI adoption in the enterprise.\n\nUltimately, the goal isn't perfection, it's mediocrity. As long as the model is good enough - and costs less than having a person do it - the AI will have paid for itself. And as we've discussed, there are plenty of corners to cut. ®"
+        }
+      ],
+      "labels": [
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "language",
+          "value": "en"
+        },
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "thumbnail",
+          "value": "https://regmedia.co.uk/2023/01/28/ai_shutterstock.jpg"
+        },
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "current_date",
+          "value": "2023-01-29"
+        },
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "title",
+          "value": "Replacing workers with AI? Don’t forget the retraining fees • The Register",
+          "span_text": "Replacing workers with AI? Don’t forget the retraining fees • The Register",
+          "span": [
+            0,
+            74
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 0,
+              "end": 74
+            }
+          ]
+        },
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "subheading",
+          "value": "So you want to replace workers with AI? Watch out for retraining fees, they're a killer",
+          "data": {},
+          "span_text": "So you want to replace workers with AI? Watch out for retraining fees, they're a killer",
+          "span": [
+            76,
+            163
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 76,
+              "end": 163
+            }
+          ]
+        },
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "subheading",
+          "value": "Who said workforce development was just for humans?",
+          "data": {},
+          "span_text": "Who said workforce development was just for humans?",
+          "span": [
+            165,
+            216
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 165,
+              "end": 216
+            }
+          ]
+        },
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "link",
+          "value": "_blank",
+          "data": {},
+          "span_text": "Buzzfeed",
+          "span": [
+            447,
+            455
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 447,
+              "end": 455
+            }
+          ]
+        },
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "link",
+          "value": "https://www.theregister.com/2023/01/19/cnet_reviewing_ai_authored_stories/",
+          "data": {},
+          "span_text": "replace workers",
+          "span": [
+            518,
+            533
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 518,
+              "end": 533
+            }
+          ]
+        },
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "link",
+          "value": "_blank",
+          "data": {},
+          "span_text": "can fit",
+          "span": [
+            1284,
+            1291
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 1284,
+              "end": 1291
+            }
+          ]
+        },
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "subheading",
+          "value": "This makes private school look like a bargain",
+          "data": {},
+          "span_text": "This makes private school look like a bargain",
+          "span": [
+            2604,
+            2649
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 2604,
+              "end": 2649
+            }
+          ]
+        },
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "link",
+          "value": "_blank",
+          "data": {},
+          "span_text": "mid 2020",
+          "span": [
+            4510,
+            4518
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 4510,
+              "end": 4518
+            }
+          ]
+        },
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "link",
+          "value": "https://arxiv.org/pdf/2104.04473.pdf",
+          "data": {},
+          "span_text": "estimated",
+          "span": [
+            5026,
+            5035
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 5026,
+              "end": 5035
+            }
+          ]
+        },
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "link",
+          "value": "https://www.theregister.com/2023/01/27/top_academic_publisher_science_bans/",
+          "data": {},
+          "span_text": "AI cannot be credited as authors in papers, top academic journals rule",
+          "span": [
+            5442,
+            5512
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 5442,
+              "end": 5512
+            }
+          ]
+        },
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "link",
+          "value": "https://www.theregister.com/2023/01/25/glitch_us_copyright_office_ai/",
+          "data": {},
+          "span_text": "Software glitch revokes copyright protection for AI-generated comic book",
+          "span": [
+            5513,
+            5585
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 5513,
+              "end": 5585
+            }
+          ]
+        },
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "link",
+          "value": "https://www.theregister.com/2023/01/23/microsoft_openai_applications/",
+          "data": {},
+          "span_text": "Microsoft can't stop itself blowing billions on OpenAI",
+          "span": [
+            5586,
+            5640
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 5586,
+              "end": 5640
+            }
+          ]
+        },
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "link",
+          "value": "https://www.theregister.com/2023/01/23/turnitin_chatgpt_detector/",
+          "data": {},
+          "span_text": "Universities offered software to sniff out ChatGPT-written essays",
+          "span": [
+            5641,
+            5706
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 5641,
+              "end": 5706
+            }
+          ]
+        },
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "subheading",
+          "value": "Behold the Megatron",
+          "data": {},
+          "span_text": "Behold the Megatron",
+          "span": [
+            5997,
+            6016
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 5997,
+              "end": 6016
+            }
+          ]
+        },
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "link",
+          "value": "https://developer.nvidia.com/blog/nvidia-hopper-architecture-in-depth/",
+          "data": {},
+          "span_text": "eight weeks",
+          "span": [
+            6216,
+            6227
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 6216,
+              "end": 6227
+            }
+          ]
+        },
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "link",
+          "value": "https://developer.nvidia.com/blog/using-deepspeed-and-megatron-to-train-megatron-turing-nlg-530b-the-worlds-largest-and-most-powerful-generative-language-model/",
+          "data": {},
+          "span_text": "continue",
+          "span": [
+            7400,
+            7408
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 7400,
+              "end": 7408
+            }
+          ]
+        },
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "subheading",
+          "value": "The point of diminishing returns",
+          "data": {},
+          "span_text": "The point of diminishing returns",
+          "span": [
+            7446,
+            7478
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 7446,
+              "end": 7478
+            }
+          ]
+        },
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "link",
+          "value": "https://www.theregister.com/2023/01/23/microsoft_openai_applications/",
+          "data": {},
+          "span_text": "investments",
+          "span": [
+            8015,
+            8026
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 8015,
+              "end": 8026
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text_generated_by_step_name": "summarize",
+      "text_generated_by_step_id": 2,
+      "contents": [
+        {
+          "utterance": "Most AI training today is done on GPUs each with a relatively small amount of fast memory onboard. The ability to run models at home has opened the eyes of many of the potential for generative AI. While these AI models all seem magical, training them even once remains an exceptionally expensive proposition."
+        }
+      ],
+      "labels": []
+    }
+  ],
+  "stats": {
+    "concurrency_wait_time": 0,
+    "total_running_jobs": 1,
+    "total_waiting_jobs": 0
+  }
+}

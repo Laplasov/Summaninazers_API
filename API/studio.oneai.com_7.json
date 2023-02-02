@@ -1,0 +1,2746 @@
+{
+  "input": [
+    {
+      "utterance": "Realtors Are Turning to AI and ChatGPT to Write Property Listings\n\n- Realtors have picked up ChatGPT as a tool for writing listings, CNN reported.\n- One agent said the tech could be used to spice up descriptions in a video.\n- Realty experts say AI may be here to stay in the industry.\n\nReal estate brokers are sitting back to let AI do the talking, as agents across the country use ChatGPT to pen emails and write property listings.\n\nThe viral artificial intelligence chatbot ChatGPT has made waves in sectors from tech to media since it launched to the public two months ago. As the AI software grows in popularity, people are finding more and more creative ways to put the tech to use — including making it write flowery descriptions for real estate listings.\n\n\"This home features a beautiful gas fireplace, a spacious living room, and a large lower-level family room,\" reads one listing on Zillow for a four-bedroom house in Iowa.\n\nThe house is just one of the listings put up by Iowa realtor JJ Johannes using help from AI, CNN reported.\n\n\"It saved me so much time,\" Johannes told CNN. \"It's not perfect but it was a great starting point. My background is in technology and writing something eloquent takes time. This made it so much easier.\"\n\nJohannes took to\n\n\"I could ask it to regenerate it, I could add more features. I could use something like this for a social media post or for a newsletter or something like that,\" he said in the video. \"And that's really just scratching the surface of what you could do with ChatGPT,\" he added.\n\nAs the technology emerges as a tool for realtors, some experts say AI is well on its way to becoming an industry standard.\n\n\"It may not be with ChatGPT, but I believe some form of artificial intelligence like this will become a big part of how we work and live our lives,\" Matt Kreamer, a spokesperson for Zillow, told CNN.\n\nUse of AI has spread far and wide among realtors, CNN reported. Miami broker Andres Asion even used the tech to rewrite emails, emphasizing legal liabilities and implications, according to CNN.\n\nAsion told CNN that ChatGPT helped him rewrite an email to unresponsive developers on behalf of a woman unable to open the windows in her home, noting the developers only responded after he used AI to pen an email outlining liability implications for the developers.\n\n\"ChatGPT wrote it as a legal issue and all of a sudden, the developer showed up at her house,\" he told CNN.\n\nEven if ChatGPT, now free for users, becomes a paid service, Asion told CNN the price tag would be no question.\n\n\"I would easily pay $100 or $200 a year for something like this,\" he told CNN. \"I'd be crazy not to.\""
+    }
+  ],
+  "status": "success",
+  "output": [
+    {
+      "text_generated_by_step_name": "html-extract-article",
+      "text_generated_by_step_id": 1,
+      "contents": [
+        {
+          "utterance": "Realtors Are Turning to AI and ChatGPT to Write Property Listings\n\n- Realtors have picked up ChatGPT as a tool for writing listings, CNN reported.\n- One agent said the tech could be used to spice up descriptions in a video.\n- Realty experts say AI may be here to stay in the industry.\n\nReal estate brokers are sitting back to let AI do the talking, as agents across the country use ChatGPT to pen emails and write property listings.\n\nThe viral artificial intelligence chatbot ChatGPT has made waves in sectors from tech to media since it launched to the public two months ago. As the AI software grows in popularity, people are finding more and more creative ways to put the tech to use — including making it write flowery descriptions for real estate listings.\n\n\"This home features a beautiful gas fireplace, a spacious living room, and a large lower-level family room,\" reads one listing on Zillow for a four-bedroom house in Iowa.\n\nThe house is just one of the listings put up by Iowa realtor JJ Johannes using help from AI, CNN reported.\n\n\"It saved me so much time,\" Johannes told CNN. \"It's not perfect but it was a great starting point. My background is in technology and writing something eloquent takes time. This made it so much easier.\"\n\nJohannes took to\n\n\"I could ask it to regenerate it, I could add more features. I could use something like this for a social media post or for a newsletter or something like that,\" he said in the video. \"And that's really just scratching the surface of what you could do with ChatGPT,\" he added.\n\nAs the technology emerges as a tool for realtors, some experts say AI is well on its way to becoming an industry standard.\n\n\"It may not be with ChatGPT, but I believe some form of artificial intelligence like this will become a big part of how we work and live our lives,\" Matt Kreamer, a spokesperson for Zillow, told CNN.\n\nUse of AI has spread far and wide among realtors, CNN reported. Miami broker Andres Asion even used the tech to rewrite emails, emphasizing legal liabilities and implications, according to CNN.\n\nAsion told CNN that ChatGPT helped him rewrite an email to unresponsive developers on behalf of a woman unable to open the windows in her home, noting the developers only responded after he used AI to pen an email outlining liability implications for the developers.\n\n\"ChatGPT wrote it as a legal issue and all of a sudden, the developer showed up at her house,\" he told CNN.\n\nEven if ChatGPT, now free for users, becomes a paid service, Asion told CNN the price tag would be no question.\n\n\"I would easily pay $100 or $200 a year for something like this,\" he told CNN. \"I'd be crazy not to.\""
+        }
+      ],
+      "labels": [
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "language",
+          "value": "en-US"
+        },
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "thumbnail",
+          "value": "https://i.insider.com/63d69961fc18470019553f53?width=1200&format=jpeg"
+        },
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "current_date",
+          "value": "2023-01-29"
+        },
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "title",
+          "value": "Realtors Are Turning to AI and ChatGPT to Write Property Listings",
+          "span_text": "Realtors Are Turning to AI and ChatGPT to Write Property Listings",
+          "span": [
+            0,
+            65
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 0,
+              "end": 65
+            }
+          ]
+        },
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "link",
+          "value": "https://www.businessinsider.com/chatgpt-stock-buzzfeed-layoffs-jobs-investors-economy-recession-markets-meta-2023-1",
+          "data": {},
+          "span_text": "sectors from tech to media",
+          "span": [
+            502,
+            528
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 502,
+              "end": 528
+            }
+          ]
+        },
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "link",
+          "value": "https://www.businessinsider.com/chatgpt-ai-chaos-openia-google-creatives-academics-2023-1",
+          "data": {},
+          "span_text": "launched to the public two months ago",
+          "span": [
+            538,
+            575
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 538,
+              "end": 575
+            }
+          ]
+        },
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "link",
+          "value": "_blank",
+          "data": {},
+          "span_text": "reads one listing on Zillow",
+          "span": [
+            872,
+            899
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 872,
+              "end": 899
+            }
+          ]
+        },
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "link",
+          "value": "_blank",
+          "data": {},
+          "span_text": "CNN reported.",
+          "span": [
+            1028,
+            1041
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 1028,
+              "end": 1041
+            }
+          ]
+        },
+        {
+          "type": "html-extract-article",
+          "skill": "html-extract-article",
+          "name": "image",
+          "value": "/public/assets/shared/light-switch.png",
+          "data": {
+            "alt": "A picture of a switch and lightbulb"
+          },
+          "span_text": "",
+          "span": [
+            2658,
+            2658
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 2658,
+              "end": 2658
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text_generated_by_step_name": "summarize",
+      "text_generated_by_step_id": 2,
+      "contents": [
+        {
+          "utterance": "Realtors are turning to AI and ChatGPT as a tool for writing listings, CNN reported. One agent said the tech could be used to spice up descriptions in a video. The viral artificial intelligence chatbot has made waves in sectors from tech to media since it launched to the public two months ago."
+        }
+      ],
+      "labels": [
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": "Real",
+          "span": [
+            0,
+            4
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 0,
+              "end": 4
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 286,
+              "end": 290
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": "Real",
+          "span": [
+            0,
+            4
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 0,
+              "end": 4
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 291,
+              "end": 297
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": "ors",
+          "span": [
+            5,
+            8
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 5,
+              "end": 8
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 74,
+              "end": 77
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " are",
+          "span": [
+            8,
+            12
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 8,
+              "end": 12
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 9,
+              "end": 12
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " are",
+          "span": [
+            8,
+            12
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 8,
+              "end": 12
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 13,
+              "end": 20
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " turning",
+          "span": [
+            12,
+            20
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 12,
+              "end": 20
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 13,
+              "end": 20
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " to",
+          "span": [
+            20,
+            23
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 20,
+              "end": 23
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 13,
+              "end": 20
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " to",
+          "span": [
+            20,
+            23
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 20,
+              "end": 23
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 21,
+              "end": 23
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " AI",
+          "span": [
+            23,
+            26
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 23,
+              "end": 26
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 24,
+              "end": 26
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " AI",
+          "span": [
+            23,
+            26
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 23,
+              "end": 26
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 27,
+              "end": 30
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " and",
+          "span": [
+            26,
+            30
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 26,
+              "end": 30
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 27,
+              "end": 30
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " and",
+          "span": [
+            26,
+            30
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 26,
+              "end": 30
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 31,
+              "end": 35
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " Chat",
+          "span": [
+            30,
+            35
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 30,
+              "end": 35
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 31,
+              "end": 35
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " Chat",
+          "span": [
+            30,
+            35
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 30,
+              "end": 35
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 35,
+              "end": 36
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": "G",
+          "span": [
+            35,
+            36
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 35,
+              "end": 36
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 35,
+              "end": 36
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": "G",
+          "span": [
+            35,
+            36
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 35,
+              "end": 36
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 36,
+              "end": 38
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": "PT",
+          "span": [
+            36,
+            38
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 36,
+              "end": 38
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 36,
+              "end": 38
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " as",
+          "span": [
+            38,
+            41
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 38,
+              "end": 41
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 106,
+              "end": 110
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " a",
+          "span": [
+            41,
+            43
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 41,
+              "end": 43
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 104,
+              "end": 105
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " a",
+          "span": [
+            41,
+            43
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 41,
+              "end": 43
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 106,
+              "end": 110
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " tool",
+          "span": [
+            43,
+            48
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 43,
+              "end": 48
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 106,
+              "end": 110
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " tool",
+          "span": [
+            43,
+            48
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 43,
+              "end": 48
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 111,
+              "end": 114
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " for",
+          "span": [
+            48,
+            52
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 48,
+              "end": 52
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 111,
+              "end": 114
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " for",
+          "span": [
+            48,
+            52
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 48,
+              "end": 52
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 115,
+              "end": 122
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " writing",
+          "span": [
+            52,
+            60
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 52,
+              "end": 60
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 115,
+              "end": 122
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " writing",
+          "span": [
+            52,
+            60
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 52,
+              "end": 60
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 123,
+              "end": 131
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " listings",
+          "span": [
+            60,
+            69
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 60,
+              "end": 69
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 123,
+              "end": 131
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " listings",
+          "span": [
+            60,
+            69
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 60,
+              "end": 69
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 131,
+              "end": 132
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": ",",
+          "span": [
+            69,
+            70
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 69,
+              "end": 70
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 131,
+              "end": 132
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": ",",
+          "span": [
+            69,
+            70
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 69,
+              "end": 70
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 133,
+              "end": 136
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " CNN",
+          "span": [
+            70,
+            74
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 70,
+              "end": 74
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 133,
+              "end": 136
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " CNN",
+          "span": [
+            70,
+            74
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 70,
+              "end": 74
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 137,
+              "end": 145
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " reported",
+          "span": [
+            74,
+            83
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 74,
+              "end": 83
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 137,
+              "end": 145
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " One",
+          "span": [
+            84,
+            88
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 84,
+              "end": 88
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 149,
+              "end": 152
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " One",
+          "span": [
+            84,
+            88
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 84,
+              "end": 88
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 153,
+              "end": 158
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " agent",
+          "span": [
+            88,
+            94
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 88,
+              "end": 94
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 153,
+              "end": 158
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " agent",
+          "span": [
+            88,
+            94
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 88,
+              "end": 94
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 159,
+              "end": 163
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " said",
+          "span": [
+            94,
+            99
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 94,
+              "end": 99
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 159,
+              "end": 163
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " the",
+          "span": [
+            99,
+            103
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 99,
+              "end": 103
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 164,
+              "end": 167
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " the",
+          "span": [
+            99,
+            103
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 99,
+              "end": 103
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 168,
+              "end": 172
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " tech",
+          "span": [
+            103,
+            108
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 103,
+              "end": 108
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 168,
+              "end": 172
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " tech",
+          "span": [
+            103,
+            108
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 103,
+              "end": 108
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 173,
+              "end": 178
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " could",
+          "span": [
+            108,
+            114
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 108,
+              "end": 114
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 173,
+              "end": 178
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " could",
+          "span": [
+            108,
+            114
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 108,
+              "end": 114
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 179,
+              "end": 181
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " could",
+          "span": [
+            108,
+            114
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 108,
+              "end": 114
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 182,
+              "end": 186
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " be",
+          "span": [
+            114,
+            117
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 114,
+              "end": 117
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 179,
+              "end": 181
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " be",
+          "span": [
+            114,
+            117
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 114,
+              "end": 117
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 182,
+              "end": 186
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " be",
+          "span": [
+            114,
+            117
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 114,
+              "end": 117
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 217,
+              "end": 222
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " used",
+          "span": [
+            117,
+            122
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 117,
+              "end": 122
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 182,
+              "end": 186
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " used",
+          "span": [
+            117,
+            122
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 117,
+              "end": 122
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 187,
+              "end": 189
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " to",
+          "span": [
+            122,
+            125
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 122,
+              "end": 125
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 187,
+              "end": 189
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " to",
+          "span": [
+            122,
+            125
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 122,
+              "end": 125
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 190,
+              "end": 195
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " to",
+          "span": [
+            122,
+            125
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 122,
+              "end": 125
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 217,
+              "end": 222
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " spice",
+          "span": [
+            125,
+            131
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 125,
+              "end": 131
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 190,
+              "end": 195
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " spice",
+          "span": [
+            125,
+            131
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 125,
+              "end": 131
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 196,
+              "end": 198
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " up",
+          "span": [
+            131,
+            134
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 131,
+              "end": 134
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 190,
+              "end": 195
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " up",
+          "span": [
+            131,
+            134
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 131,
+              "end": 134
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 196,
+              "end": 198
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " up",
+          "span": [
+            131,
+            134
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 131,
+              "end": 134
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 199,
+              "end": 211
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " up",
+          "span": [
+            131,
+            134
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 131,
+              "end": 134
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 217,
+              "end": 222
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " descriptions",
+          "span": [
+            134,
+            147
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 134,
+              "end": 147
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 199,
+              "end": 211
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " descriptions",
+          "span": [
+            134,
+            147
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 134,
+              "end": 147
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 212,
+              "end": 214
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " in",
+          "span": [
+            147,
+            150
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 147,
+              "end": 150
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 217,
+              "end": 222
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " a",
+          "span": [
+            150,
+            152
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 150,
+              "end": 152
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 212,
+              "end": 214
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " a",
+          "span": [
+            150,
+            152
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 150,
+              "end": 152
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 215,
+              "end": 216
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " a",
+          "span": [
+            150,
+            152
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 150,
+              "end": 152
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 217,
+              "end": 222
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " video",
+          "span": [
+            152,
+            158
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 152,
+              "end": 158
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 217,
+              "end": 222
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " viral",
+          "span": [
+            163,
+            169
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 163,
+              "end": 169
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 438,
+              "end": 443
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " viral",
+          "span": [
+            163,
+            169
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 163,
+              "end": 169
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 444,
+              "end": 454
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " artificial",
+          "span": [
+            169,
+            180
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 169,
+              "end": 180
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 444,
+              "end": 454
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " artificial",
+          "span": [
+            169,
+            180
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 169,
+              "end": 180
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 455,
+              "end": 467
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " intelligence",
+          "span": [
+            180,
+            193
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 180,
+              "end": 193
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 455,
+              "end": 467
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " intelligence",
+          "span": [
+            180,
+            193
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 180,
+              "end": 193
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 468,
+              "end": 472
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " chat",
+          "span": [
+            193,
+            198
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 193,
+              "end": 198
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 468,
+              "end": 472
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " chat",
+          "span": [
+            193,
+            198
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 193,
+              "end": 198
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 472,
+              "end": 475
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": "bot",
+          "span": [
+            198,
+            201
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 198,
+              "end": 201
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 472,
+              "end": 475
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": "bot",
+          "span": [
+            198,
+            201
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 198,
+              "end": 201
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 476,
+              "end": 480
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " has",
+          "span": [
+            201,
+            205
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 201,
+              "end": 205
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 484,
+              "end": 487
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " has",
+          "span": [
+            201,
+            205
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 201,
+              "end": 205
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 488,
+              "end": 492
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " made",
+          "span": [
+            205,
+            210
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 205,
+              "end": 210
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 488,
+              "end": 492
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " made",
+          "span": [
+            205,
+            210
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 205,
+              "end": 210
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 493,
+              "end": 498
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " waves",
+          "span": [
+            210,
+            216
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 210,
+              "end": 216
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 493,
+              "end": 498
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " waves",
+          "span": [
+            210,
+            216
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 210,
+              "end": 216
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 499,
+              "end": 501
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " in",
+          "span": [
+            216,
+            219
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 216,
+              "end": 219
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 499,
+              "end": 501
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " in",
+          "span": [
+            216,
+            219
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 216,
+              "end": 219
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 502,
+              "end": 509
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " sectors",
+          "span": [
+            219,
+            227
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 219,
+              "end": 227
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 502,
+              "end": 509
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " sectors",
+          "span": [
+            219,
+            227
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 219,
+              "end": 227
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 510,
+              "end": 514
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " from",
+          "span": [
+            227,
+            232
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 227,
+              "end": 232
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 510,
+              "end": 514
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " from",
+          "span": [
+            227,
+            232
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 227,
+              "end": 232
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 515,
+              "end": 519
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " from",
+          "span": [
+            227,
+            232
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 227,
+              "end": 232
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 520,
+              "end": 522
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " tech",
+          "span": [
+            232,
+            237
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 232,
+              "end": 237
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 515,
+              "end": 519
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " tech",
+          "span": [
+            232,
+            237
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 232,
+              "end": 237
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 520,
+              "end": 522
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " to",
+          "span": [
+            237,
+            240
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 237,
+              "end": 240
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 520,
+              "end": 522
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " to",
+          "span": [
+            237,
+            240
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 237,
+              "end": 240
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 523,
+              "end": 528
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " media",
+          "span": [
+            240,
+            246
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 240,
+              "end": 246
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 523,
+              "end": 528
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " media",
+          "span": [
+            240,
+            246
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 240,
+              "end": 246
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 529,
+              "end": 534
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " since",
+          "span": [
+            246,
+            252
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 246,
+              "end": 252
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 529,
+              "end": 534
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " since",
+          "span": [
+            246,
+            252
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 246,
+              "end": 252
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 535,
+              "end": 537
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " since",
+          "span": [
+            246,
+            252
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 246,
+              "end": 252
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 538,
+              "end": 546
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " it",
+          "span": [
+            252,
+            255
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 252,
+              "end": 255
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 535,
+              "end": 537
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " it",
+          "span": [
+            252,
+            255
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 252,
+              "end": 255
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 538,
+              "end": 546
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " launched",
+          "span": [
+            255,
+            264
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 255,
+              "end": 264
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 538,
+              "end": 546
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " launched",
+          "span": [
+            255,
+            264
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 255,
+              "end": 264
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 547,
+              "end": 549
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " launched",
+          "span": [
+            255,
+            264
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 255,
+              "end": 264
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 561,
+              "end": 564
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " to",
+          "span": [
+            264,
+            267
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 264,
+              "end": 267
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 554,
+              "end": 560
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " the",
+          "span": [
+            267,
+            271
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 267,
+              "end": 271
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 554,
+              "end": 560
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " public",
+          "span": [
+            271,
+            278
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 271,
+              "end": 278
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 554,
+              "end": 560
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " public",
+          "span": [
+            271,
+            278
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 271,
+              "end": 278
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 561,
+              "end": 564
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " two",
+          "span": [
+            278,
+            282
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 278,
+              "end": 282
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 561,
+              "end": 564
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " two",
+          "span": [
+            278,
+            282
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 278,
+              "end": 282
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 565,
+              "end": 571
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " months",
+          "span": [
+            282,
+            289
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 282,
+              "end": 289
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 565,
+              "end": 571
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " months",
+          "span": [
+            282,
+            289
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 282,
+              "end": 289
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 572,
+              "end": 575
+            }
+          ]
+        },
+        {
+          "type": "origin",
+          "skill": "origin",
+          "span_text": " ago",
+          "span": [
+            289,
+            293
+          ],
+          "output_spans": [
+            {
+              "section": 0,
+              "start": 289,
+              "end": 293
+            }
+          ],
+          "input_spans": [
+            {
+              "section": 0,
+              "start": 572,
+              "end": 575
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "stats": {
+    "concurrency_wait_time": 0,
+    "total_running_jobs": 1,
+    "total_waiting_jobs": 0
+  }
+}
