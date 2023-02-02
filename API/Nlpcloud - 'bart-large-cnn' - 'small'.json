@@ -1,0 +1,64 @@
+Nlpcloud - 'bart-large-cnn' - 'small'
+
+
+https://developers.slashdot.org/story/23/01/29/0225201/openai-hires-an-army-of-contractors-will-they-make-coding-obsolete
+{
+  summary_text: 'OpenAI, the company that created ChatGPT, has ramped up its hiring around the world. The company is building a dataset that includes not just lines of code, but also the human explanations behind them written in natural language. A software developer in South America who completed a five-hour unpaid coding test for OpenAI said he was asked to tackle a series of assignments.'
+}
+https://www.businessinsider.com/what-real-life-relationship-coaches-think-chatgpts-dating-advice-2023-1
+
+{
+  summary_text: "ChatGPT is a generative-AI chatbot that's been all over social media and the news. Insider asked ChatGPT for a range of relationship advice, like how to build a dating app profile. Four online and in-person dating coaches gave their feedback on the chatbot's advice."
+}
+
+https://www.businessinsider.com/realtors-using-ai-chatgpt-to-write-property-listings-emails-2023-1
+
+{
+  summary_text: ' AI chatbot ChatGPT has become a popular tool for realtors. Agents use it to write emails and write descriptions for real estate listings. Some experts say AI is well on its way to becoming an industry standard. The chatbot is now free for users, but brokers say they would pay for it.'
+}
+
+https://www.businessinsider.com/google-ai-bot-makes-music-text-wont-release-2023-1
+
+{
+  summary_text: 'Google has developed a bot that creates music based on text prompts. MusicLM can transform whistled and hummed melodies according to the style described in a text caption. Google does not intend to release MusicLM to the public, citing a variety of risks including programming biases that may lead to cultural appropriation.'
+}
+
+
+
+
+
+
+https://www.businessinsider.com/ai-chatbot-openai-chatgpt-layoff-memo-amazon-google-meta-2023-1
+
+{
+  summary_text: 'ChatGPT, the viral AI chatbot, is the new go-to tool for just about every writing task. It can whip up news articles, offer solid investment advice, and even write software code. Insider asked ChatGPT to whip up a layoff memo for a pretend tech company, Gomezon. It completed the assignment and acknowledged that laying off employees is indeed "difficult"'
+}
+
+https://www.theregister.com/2023/01/29/ai_retraining_costs/
+
+{
+  summary_text: 'Most generative AI models are trained on large datasets and then exported as a pre-trained model. Stable Diffusion can fit into just 4GB of Nvidia v RAM without sending the CPU into overdrive trying to churn data. While these AI models all seem magical, training them even once remains an exceptionally expensive proposition.'
+}
+
+https://feld.com/archives/2023/01/ai-and-the-hyperencabulator/
+
+{
+  summary_text: 'The HyperEncabulator is an evolution of, and inspired by, the Retro Encabulator initiative. It is described as “an intricate and implausible device for the purpose of regaining lost energy” The machine consists of numerous components, such as pistons, flywheels, and other components that serve no real purpose.'
+}
+
+https://www.forbes.com/sites/janicegassam/2023/01/28/the-dark-side-of-chatgpt/
+
+{
+  summary_text: 'ChatGPT was launched in November 2022 and is able to create human-like text. In order to make ChatGPT less violent, sexist, and racist, OpenAI hired Kenyan laborers. The laborers were in charge of filtering harmful text and images in order to train the data to be able to recognize harmful content.'
+}
+
+https://www.forbes.com/sites/lanceeliot/2023/01/29/some-insist-that-generative-ai-chatgpt-is-a-mirror-into-the-soul-of-humanity-vexing-ai-ethics-and-ai-law/?sh=44eee5bd12db
+
+{
+  summary_text: 'Lance B. Eliot is a world-renowned expert on Artificial Intelligence (AI) and Machine Learning (ML) Some are insisting that the latest in AI can serve as a mirror into the soul of humanity. We might react radically and negatively to the AI mirror. But we are stridently instead going to ascend to grand levels that we never imagined possible, prodded by, and enabled via AI.'
+}
+
+https://www.practicalecommerce.com/how-chatgpt-drives-ecommerce-conversions
+{
+  summary_text: 'ChatGPT can generate marketing copy, engage in conversational dialogue, and produce code. ChatGPT’s suggestions are not perfect, but they include impulse triggers and shopper-focused dialog. Epson: Automatically extracts and categorizes data from receipts and invoices.'
+}
